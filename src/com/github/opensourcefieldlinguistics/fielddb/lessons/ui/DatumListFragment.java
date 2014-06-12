@@ -26,7 +26,7 @@ import android.widget.ListView;
 import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider.DatumTable;
 import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider;
 import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
-import com.github.opensourcefieldlinguistics.fielddb.lessons.georgian.R;
+import  com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
 /**
  * A list fragment representing a list of Datums. This fragment also supports
