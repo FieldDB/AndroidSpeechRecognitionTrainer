@@ -1,7 +1,6 @@
 package com.github.opensourcefieldlinguistics.fielddb.service;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider;
 import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider.DatumTable;
@@ -34,7 +33,6 @@ public class KartuliLegalSearchCorpusService extends IntentService {
 		Uri uri;
 		String[] datumProjection = {DatumTable.COLUMN_ID};
 		Cursor cursor;
-		String mediaFilesAsString = "";
 		ContentValues datumAsValues;
 		for (Datum datum : smsSamples) {
 			id = datum.getId();
