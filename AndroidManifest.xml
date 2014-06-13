@@ -56,6 +56,11 @@
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.DatumListActivity"
             android:label="@string/speech_app_name" >
+            
+        </activity>
+        <activity
+            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ProductionExperimentViewPagerFragmentActivity"
+            android:label="KartuliSpeechTrainer" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
