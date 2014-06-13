@@ -19,5 +19,10 @@
     <string name="dialog_continue_to_advanced_training">Add your own words?</string>
     <string name="continue_word">Continue</string>
     <string name="finished">Enough</string>
+    <string name="context">კონტექსტში</string>
+    <string name="orthography">ფრაზა</string>
+    <string name="tag_hint">WebSearch, SMS, Email</string>
+    <string name="translation_hint"> </string>
+    
 
 </resources>
