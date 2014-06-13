@@ -55,11 +55,14 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.DatumListActivity"
-            android:label="@string/speech_app_name" >
-            
+            android:label="Recognition Trainer Advanced" >
         </activity>
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ProductionExperimentViewPagerFragmentActivity"
+            android:label="Recognition Trainer" >
+        </activity>
+        <activity
+            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.WelcomeActivity"
             android:label="KartuliSpeechTrainer" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -67,6 +70,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ListenAndRepeat"
+            android:label="KartuliSpeechRecognizer" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+       
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.DatumDetailActivity"
             android:label="@string/title_datum_detail"
