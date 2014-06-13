@@ -66,11 +66,16 @@ public class KartuliWebSearchCorpusService extends IntentService {
 			}
 		}
 
+		Intent updateLegalSearchSamples = new Intent(getApplicationContext(),
+				KartuliLegalSearchCorpusService.class);
+		getApplicationContext().startService(updateLegalSearchSamples);
+
 	}
 	private void initSmsSamples() {
 		this.smsSamples = new ArrayList<Datum>();
 
-		Datum datum = new Datum("რამდენია ტემპერატურა დღეს?");
+		Datum datum = new Datum("რა ტემპერატურაა დღეს?");
+		datum.setUtterance("ra t'emp'erat'uraa dghes");
 		datum.setId("web1");
 		datum.setRev("");
 		datum.setContext("");
@@ -78,6 +83,7 @@ public class KartuliWebSearchCorpusService extends IntentService {
 		this.smsSamples.add(datum);
 
 		datum = new Datum("როგორ აღვადგინო გაუქმებული ფეისბუქის გვერდი?");
+		datum.setUtterance("rogor aghvadgino gaukmebuli peisbukis gverdi");
 		datum.setId("web2");
 		datum.setRev("");
 		datum.setContext("");

@@ -71,6 +71,7 @@ public class KartuliLegalSearchCorpusService extends IntentService {
 		this.smsSamples = new ArrayList<Datum>();
 
 		Datum datum = new Datum("ხელშეკრულების სტანდარტული პირობები");
+		datum.setUtterance("khelshek'rulebis st'andart'uli p'irobebi");
 		datum.setId("legal1");
 		datum.setRev("");
 		datum.setContext("");
@@ -78,6 +79,7 @@ public class KartuliLegalSearchCorpusService extends IntentService {
 		this.smsSamples.add(datum);
 
 		datum = new Datum("ნასყიდობის ხელშეკრულება");
+		datum.setUtterance("nasqidobis khelshek'ruleba");
 		datum.setId("legal2");
 		datum.setRev("");
 		datum.setContext("");
