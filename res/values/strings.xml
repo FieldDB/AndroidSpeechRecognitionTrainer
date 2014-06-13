@@ -5,12 +5,16 @@
     <string name="speech_app_name">ქართული</string>
     <string name="title_datum_detail">ფრაზა</string>
     <string name="app_explanation">ბათუმი აპლიკაციის დეველოპერები  გაერთიანდნენ ღია ველის ენათმეცნიერები  რათა შექმნან სიტყვის გამომცნობი ქართული ენის მოსაუბრეებთათვის. შენ შეგიძლია ისარგებლო ამ აპლიკაციით, მოამზადო შენი ანდროიდი, რათა გამოიცნო შენი მეტყველება. შენ უნდა წაიკითხო რამოდენიმე წინადადება და შემდეგ დაუკავშირდე WiFi-ს რათა გადაამზადო შენი ხმის მოდელი. ჩვენ ვიმედოვნებთ, რომ გვექნება უკეთესი .გამომცნობი რომელიც იქნება 10%ზე მეტი, თუმცა ქართული ენა განსხვავებულია სხვა ენებისგან, ასე რომ ჩვენ ჯერ არ ვიცით რამდენად გამოსაყენებელი იქნება ეს აპლიკაცია. შენ შეგიძლია სცადო, ეს არის უფრო მეტად ექსპერიმენტული და კვლევის პროგრამული უზრუნველყოფა, ასე რო ჩვენ არ შეგვიძლია მოგცეთ გარანტია, რომ ეს იქნება გამოსაყენებელი. აქ არის ჩვენი სლაიდის ლინკი:  http://batumi.github.io</string>
-    
+
     <!-- Recognition prompts -->
     <string name="im_listening">Talk to me, I\'m listening...</string>
     <string name="i_might_have_heard">I might have heard: </string>
     <string name="or_maybe">Or maybe this: </string>
     <string name="there_were_others">. I\'m pretty funny, ey? There were some other options, but I think I\'ll stop there. </string>
-	<string name="train">Train</string>
-	<string name="recognize">Recognize</string>
+    <string name="train">Train</string>
+    <string name="recognize">Recognize</string>
+    <string name="tap_to_speak">Tap to speak again</string>
+    <string name="tap_to_end">Tap to end</string>
+    <string name="speak_now">Speak now</string>
+
 </resources>
