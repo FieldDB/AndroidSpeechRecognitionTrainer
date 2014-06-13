@@ -70,12 +70,20 @@ public class KartuliSMSCorpusService extends IntentService {
 	private void initSmsSamples() {
 		this.smsSamples = new ArrayList<Datum>();
 
-		Datum datum = new Datum("sad xar??");
+		Datum datum = new Datum("You need to read a few sentences to train the recognizer to your voice and your words.");
+		datum.setId("instructions");
+		datum.setRev("");
+		datum.setContext("");
+		datum.setTagsFromSting("SMS");
+		this.smsSamples.add(datum);
+		
+		datum = new Datum("sad xar??");
 		datum.setId("sms1");
 		datum.setRev("");
 		datum.setContext("");
 		datum.setTagsFromSting("SMS");
 		this.smsSamples.add(datum);
+
 
 		datum = new Datum("axla ar mcalia da sagamos gadmoval.");
 		datum.setId("sms2");
