@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ქართული  ერთად</string>
-    <string name="speech_app_name">ქართული speech</string>
-    <string name="title_datum_detail">ფრაზა</string>
-
+    <string name="app_name">ქართული</string>
+    
 </resources>
