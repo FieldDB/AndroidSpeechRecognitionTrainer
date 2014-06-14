@@ -49,7 +49,7 @@
     <application
         android:name="com.github.opensourcefieldlinguistics.fielddb.FieldDBApplication"
         android:allowBackup="true"
-        android:icon="@drawable/ic_kartuli_speech"
+        android:icon="@drawable/ic_launcher"
         android:label="@string/speech_app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme" >
