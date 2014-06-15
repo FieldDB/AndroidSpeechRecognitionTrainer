@@ -58,7 +58,7 @@
             android:label="Recognition Trainer Advanced" >
         </activity>
         <activity
-            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ProductionExperimentViewPagerFragmentActivity"
+            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ProductionExperimentActivity"
             android:label="Recognition Trainer" >
         </activity>
         <activity
