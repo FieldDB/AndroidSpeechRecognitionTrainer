@@ -71,7 +71,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ListenAndRepeat"
+            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.SpeechRecognitionActivity"
             android:label="KartuliSpeechRecognizer" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
