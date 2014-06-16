@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ქართული</string>
+    <string name="app_name">მწვრთნელი</string>
+    <string name="speech_app_name">ამომცნობი</string>
+    <string name="title_datum_detail">ფრაზა</string>
+    <string name="app_explanation">ბათუმი აპლიკაციის დეველოპერები  გაერთიანდნენ ღია ველის ენათმეცნიერები  რათა შექმნან სიტყვის გამომცნობი ქართული ენის მოსაუბრეებთათვის. შენ შეგიძლია ისარგებლო ამ აპლიკაციით, მოამზადო შენი ანდროიდი, რათა გამოიცნო შენი მეტყველება. შენ უნდა წაიკითხო რამოდენიმე წინადადება და შემდეგ დაუკავშირდე WiFi-ს რათა გადაამზადო შენი ხმის მოდელი. ჩვენ ვიმედოვნებთ, რომ გვექნება უკეთესი .გამომცნობი რომელიც იქნება 10%ზე მეტი, თუმცა ქართული ენა განსხვავებულია სხვა ენებისგან, ასე რომ ჩვენ ჯერ არ ვიცით რამდენად გამოსაყენებელი იქნება ეს აპლიკაცია. შენ შეგიძლია სცადო, ეს არის უფრო მეტად ექსპერიმენტული და კვლევის პროგრამული უზრუნველყოფა, ასე რო ჩვენ არ შეგვიძლია მოგცეთ გარანტია, რომ ეს იქნება გამოსაყენებელი. აქ არის ჩვენი სლაიდის ლინკი:  http://batumi.github.io</string>
+
+    <!-- Recognition prompts -->
+    <string name="im_listening">გისმენთ</string>
+    <string name="i_might_have_heard">შესაძლებელია გამიგია: </string>
+    <string name="or_maybe">ან შეიძლება </string>
+    <string name="train">წვრთნა</string>
+    <string name="recognize">ამოცნობა</string>
+    <string name="tap_to_speak">დააჭირე,რომ ილაპარაკო</string>
+    <string name="tap_to_end">დააჭირე,რომ დაასრულო</string>
+    <string name="speak_now">ილაპარაკე ახლა</string>
+    <string name="dialog_continue_to_advanced_training">დაამატებდი საკუთარ სიტყვებს?</string>
+    <string name="continue_word">გააგრძელე</string>
+    <string name="finished">საკმარისია</string>
+    <string name="context">კონტექსტში</string>
+    <string name="orthography">ფრაზა</string>
+    <string name="tag_hint">ინტერნეტ ძიება, ტექქსტური შეტყობინება, ელექქტრონული წერილი </string>
+    <string name="translation_hint"> </string>
     
 </resources>
