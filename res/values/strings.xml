@@ -23,6 +23,6 @@
     <string name="orthography">ფრაზა</string>
     <string name="tag_hint">WebSearch, SMS, Email</string>
     <string name="translation_hint"> </string>
-    
+    <string name="remove">Remove</string>
 
 </resources>
