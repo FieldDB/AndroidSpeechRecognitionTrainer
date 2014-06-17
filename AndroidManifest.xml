@@ -59,11 +59,11 @@
         </activity>
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ProductionExperimentActivity"
-            android:label="Recognition Trainer" >
+            android:label="@string/train" >
         </activity>
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.WelcomeActivity"
-            android:label="KartuliSpeechTrainer" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,14 +72,13 @@
         </activity>
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.SpeechRecognitionActivity"
-            android:label="KartuliSpeechRecognizer" >
+            android:label="@string/im_listening" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-       
         <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.DatumDetailActivity"
             android:label="@string/title_datum_detail"
