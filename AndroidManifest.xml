@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.opensourcefieldlinguistics.fielddb.speech.kartuli"
-    android:versionCode="5"
-    android:versionName="2.4.0" >
+    android:versionCode="6"
+    android:versionName="2.4.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -58,10 +58,6 @@
             android:label="Recognition Trainer Advanced" >
         </activity>
         <activity
-            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ProductionExperimentActivity"
-            android:label="@string/train" >
-        </activity>
-        <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.WelcomeActivity"
             android:label="@string/app_name" >
             <intent-filter>
@@ -71,7 +67,18 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.ProductionExperimentActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:label="@string/train" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.github.opensourcefieldlinguistics.fielddb.lessons.ui.SpeechRecognitionActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/im_listening" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -115,17 +122,17 @@
 
         <provider
             android:name="com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider"
-            android:authorities="com.github.opensourcefieldlinguistics.fielddb.speechrec.kartuli.datum"
+            android:authorities="com.github.opensourcefieldlinguistics.fielddb.speechrecognition.kartuli.datum"
             android:exported="false" >
         </provider>
         <provider
             android:name="com.github.opensourcefieldlinguistics.fielddb.database.AudioVideoContentProvider"
-            android:authorities="com.github.opensourcefieldlinguistics.fielddb.speechrec.kartuli.audiovideo"
+            android:authorities="com.github.opensourcefieldlinguistics.fielddb.speechrecognition.kartuli.audiovideo"
             android:exported="false" >
         </provider>
         <provider
             android:name="com.github.opensourcefieldlinguistics.fielddb.database.FieldDBUserContentProvider"
-            android:authorities="com.github.opensourcefieldlinguistics.fielddb.speechrec.kartuli.user"
+            android:authorities="com.github.opensourcefieldlinguistics.fielddb.speechrecognition.kartuli.user"
             android:exported="false" >
         </provider>
     </application>

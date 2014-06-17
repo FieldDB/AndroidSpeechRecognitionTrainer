@@ -9,11 +9,11 @@
     <string name="are_you_sure_put_in_trash">Are you sure you want to put this datum in the trash?</string>
 
     <!-- Recognition prompts -->
-    <string name="im_listening">Talk to me, I\'m listening...</string>
+    <string name="im_listening">გისმენთ</string>
     <string name="i_might_have_heard">I might have heard: </string>
     <string name="or_maybe">Or maybe this: </string>
     <string name="there_were_others">. I\'m pretty funny, ey? There were some other options, but I think I\'ll stop there. </string>
-    <string name="train">Train</string>
+    <string name="train">წვრთნა</string>
     <string name="recognize">Recognize</string>
     <string name="tap_to_speak">Tap to speak again</string>
     <string name="tap_to_end">Tap to end</string>
