@@ -81,9 +81,9 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/im_listening" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.speech.action.RECOGNIZE_SPEECH" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
@@ -119,7 +119,7 @@
         </service>
         <service android:name="com.github.opensourcefieldlinguistics.fielddb.service.KartuliLegalSearchCorpusService" >
         </service>
-        <service android:name="com.github.opensourcefieldlinguistics.fielddb.service.PocketSphinxRecognizerService" >
+        <service android:name="com.github.opensourcefieldlinguistics.fielddb.service.PocketSphinxRecognitionService" >
         </service>
 
         <provider
