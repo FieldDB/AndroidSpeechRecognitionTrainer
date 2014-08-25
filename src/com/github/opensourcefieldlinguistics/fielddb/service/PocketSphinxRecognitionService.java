@@ -5,6 +5,7 @@ import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
 
@@ -28,11 +29,6 @@ public class PocketSphinxRecognitionService extends Service implements
     public static final String SMS_SPEECH = "sms";
     public static final String WEB_SEARCH = "websearch";
     public static final String LEGAL_SEARCH = "legalsearch";
-    public static final String DIGITS_SEARCH = "digits";
-    public static final String FORECAST_SEARCH = "forecast";
-    public static final String KWS_SEARCH = "wakeup";
-    public static final String MENU_SEARCH = "menu";
-    public static final String KEYPHRASE = "okay android";
     public static final String LANGUAGE_MODEL_SMS = "recognizesms";
     public static final String LANGUAGE_MODEL_LEGAL_SEARCH = "recognizelegalsearch";
     public static final String EXTRA_RESULT_AUDIO_FILE = "extra_result_audio_file";
@@ -62,7 +58,9 @@ public class PocketSphinxRecognitionService extends Service implements
 
     // @Override
     protected void onCancel(Callback arg0) {
-        recognizer.stop();
+        if (recognizer != null) {
+            recognizer.stop();
+        }
         Hypothesis completedHypoth = new Hypothesis("recognitionCancelled",
                 "cancelled", 0);
         broadcast(completedHypoth, true);
@@ -84,6 +82,10 @@ public class PocketSphinxRecognitionService extends Service implements
     protected void onStartListening(Intent recognizerIntent, Callback callback) {
         if (recognizer == null) {
             setupRecognizer();
+        }
+        if (recognizer == null) {
+            Log.e(Config.TAG, "Recognizer failed to setup");
+            return;
         }
 
         recognizer.setRecognitionCallback(callback);
@@ -108,10 +110,10 @@ public class PocketSphinxRecognitionService extends Service implements
                     .equals(requestedLanguageModel)) {
                 switchSearch(LEGAL_SEARCH);
             } else {
-                switchSearch(KWS_SEARCH);
+                switchSearch(FREEFORM_SPEECH);
                 Toast.makeText(
                         getApplicationContext(),
-                        "Say: \"Okay Android\" then your choice of: \"sms\", \"web search\" or  \"legal search\"",
+                        "Speak naturally, I'm using your personal free form language model",
                         Toast.LENGTH_LONG).show();
             }
 
@@ -138,36 +140,27 @@ public class PocketSphinxRecognitionService extends Service implements
             File modelsDir = new File(assetDir, "models");
             recognizer = defaultSetup()
                     .setAcousticModel(new File(modelsDir, "hmm/en-us-semi"))
-                    .setDictionary(new File(modelsDir, "dict/cmu07a.dic"))
+                    .setDictionary(new File(modelsDir, "dict/sms_corpus.dic"))
                     .setRawLogDir(assetDir).setKeywordThreshold(1e-40f)
                     .getRecognizer();
             recognizer.addListener(this);
 
-            // Create keyword-activation search.
-            recognizer.addKeyphraseSearch(KWS_SEARCH, KEYPHRASE);
-            // Create grammar-based searches.
-            File menuGrammar = new File(modelsDir, "grammar/menu.gram");
-            recognizer.addGrammarSearch(MENU_SEARCH, menuGrammar);
-            File digitsGrammar = new File(modelsDir, "grammar/digits.gram");
-            recognizer.addGrammarSearch(DIGITS_SEARCH, digitsGrammar);
-
-            File freeformGrammar = new File(modelsDir, "grammar/freeform.gram");
-            recognizer.addGrammarSearch(FREEFORM_SPEECH, freeformGrammar);
-            File smsGrammar = new File(modelsDir, "grammar/sms.gram");
-            recognizer.addGrammarSearch(FREEFORM_SPEECH, smsGrammar);
-            File webGrammar = new File(modelsDir, "grammar/websearch.gram");
-            recognizer.addGrammarSearch(WEB_SEARCH, webGrammar);
-            File legalGrammar = new File(modelsDir, "grammar/legalsearch.gram");
-            recognizer.addGrammarSearch(LEGAL_SEARCH, legalGrammar);
-
-            // Create language model search.
-            File languageModel = new File(modelsDir, "lm/weather.dmp");
-            recognizer.addNgramSearch(FORECAST_SEARCH, languageModel);
+            File smsLanguageModel = new File(modelsDir, "lm/sms_corpus.dmp");
+            recognizer.addNgramSearch(SMS_SPEECH, smsLanguageModel);
+            // File freeformLanguageModel = new File(modelsDir,
+            // "lm/free_form_corpus.dmp");
+            recognizer.addNgramSearch(FREEFORM_SPEECH, smsLanguageModel);
+            // File webLanguageModel = new File(modelsDir,
+            // "lm/web_search_corpus.dmp");
+            recognizer.addNgramSearch(WEB_SEARCH, smsLanguageModel);
+            // File legalLanguageModel = new File(modelsDir,
+            // "lm/legal_search_corpus.dmp");
+            recognizer.addNgramSearch(LEGAL_SEARCH, smsLanguageModel);
         } catch (IOException e) {
             e.printStackTrace();
             Toast.makeText(
                     getApplicationContext(),
-                    "Your voice model is not ready, using the default recognition for your system.",
+                    "თქვენი sdcard არ არის მზად. Your voice model can't be loaded, please make sure your SDCARD is not in use.",
                     Toast.LENGTH_LONG).show();
             return;
         }
@@ -242,6 +235,13 @@ public class PocketSphinxRecognitionService extends Service implements
         if ("recognitionCancelled".equals(text)) {
             text = "";
             completedResult = true;
+        }
+
+        // Make first character upper case, and the rest lower case (this is
+        // because the SMS corpus is uppercase)s
+        if (text.length() > 1) {
+            text = text.substring(0, 1).toUpperCase(Locale.getDefault())
+                    + text.substring(1).toLowerCase(Locale.getDefault());
         }
         if (!completedResult) {
             if (mPreviousPartialHypotheses == null) {
