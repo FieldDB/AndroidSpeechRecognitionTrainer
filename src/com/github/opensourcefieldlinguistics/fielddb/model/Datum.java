@@ -593,9 +593,7 @@ public class Datum {
 					.substring(0, 49) + "___";
 		}
 		/* Add a unique human readable date, and a timestamp */
-		String dateString = (String) android.text.format.DateFormat.format(
-				"yyyy-MM-dd_kk.mm", new java.util.Date());
-		dateString = dateString.replaceAll("/", "-");
+		String dateString = Config.getHumanReadableTimestamp();
 		filenameBasedOnMorphemesOrWhateverIsAvailable = filenameBasedOnMorphemesOrWhateverIsAvailable
 				+ "_" + dateString + "_" + System.currentTimeMillis();
 		return filenameBasedOnMorphemesOrWhateverIsAvailable;
