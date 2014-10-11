@@ -4,8 +4,7 @@ import java.util.ArrayList;
 
 import org.acra.ACRA;
 
-import ca.ilanguage.oprime.model.DeviceDetails;
-
+import com.github.opensourcefieldlinguistics.datacollection.DeviceDetails;
 import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.BuildConfig;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
