@@ -48,7 +48,7 @@
         android:required="false" />
 
     <application
-        android:name="com.github.opensourcefieldlinguistics.fielddb.FieldDBApplication"
+        android:name="com.github.opensourcefieldlinguistics.fielddb.KartuliSpeechRecognitionApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/speech_app_name"

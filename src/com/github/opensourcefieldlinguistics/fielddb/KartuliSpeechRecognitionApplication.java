@@ -38,7 +38,7 @@ import android.net.Uri;
 import android.util.Log;
 
 @ReportsCrashes(formKey = "", formUri = "", reportType = org.acra.sender.HttpSender.Type.JSON, httpMethod = org.acra.sender.HttpSender.Method.PUT, formUriBasicAuthLogin = "see_private_constants", formUriBasicAuthPassword = "see_private_constants")
-public class FieldDBApplication extends Application {
+public class KartuliSpeechRecognitionApplication extends Application {
 	User mUser;
 
 	@Override
