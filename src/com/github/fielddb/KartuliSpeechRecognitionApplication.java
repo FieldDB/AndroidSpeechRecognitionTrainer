@@ -43,6 +43,8 @@ public class KartuliSpeechRecognitionApplication extends Application {
 
   @Override
   public final void onCreate() {
+    DatumContentProvider.setAppType(Config.APP_TYPE);
+    DatumContentProvider.setDataIsAboutLanguageName(Config.DATA_IS_ABOUT_LANGUAGE_NAME_ASCII);
     super.onCreate();
     String language = forceLocale(Config.DATA_IS_ABOUT_LANGUAGE_ISO);
     Log.d(Config.TAG, "Forced the locale to " + language);
