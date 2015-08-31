@@ -1,4 +1,4 @@
-package com.github.opensourcefieldlinguistics.fielddb.service;
+package com.github.fielddb.service;
 
 import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
-import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
+import com.github.fielddb.lessons.Config;
 
 import edu.cmu.pocketsphinx.Assets;
 import edu.cmu.pocketsphinx.Hypothesis;

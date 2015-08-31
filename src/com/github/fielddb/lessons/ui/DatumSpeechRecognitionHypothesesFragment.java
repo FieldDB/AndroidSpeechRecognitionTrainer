@@ -1,4 +1,4 @@
-package com.github.opensourcefieldlinguistics.fielddb.lessons.ui;
+package com.github.fielddb.lessons.ui;
 
 import java.util.ArrayList;
 
@@ -30,10 +30,10 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider.DatumTable;
-import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
-import com.github.opensourcefieldlinguistics.fielddb.service.PocketSphinxRecognitionService;
-import com.github.opensourcefieldlinguistics.fielddb.service.UploadAudioVideoService;
+import com.github.fielddb.database.DatumContentProvider.DatumTable;
+import com.github.fielddb.lessons.Config;
+import com.github.fielddb.service.PocketSphinxRecognitionService;
+import com.github.fielddb.service.UploadAudioVideoService;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
 public class DatumSpeechRecognitionHypothesesFragment extends

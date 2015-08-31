@@ -1,4 +1,4 @@
-package com.github.opensourcefieldlinguistics.fielddb;
+package com.github.fielddb;
 
 /* https://github.com/ACRA/acralyzer/wiki/setup */
 import java.io.File;
@@ -14,17 +14,17 @@ import org.acra.ACRA;
 import org.acra.ACRAConfiguration;
 import org.acra.annotation.ReportsCrashes;
 
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider;
-import com.github.opensourcefieldlinguistics.fielddb.database.FieldDBUserContentProvider;
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider.DatumTable;
-import com.github.opensourcefieldlinguistics.fielddb.database.UserContentProvider.UserTable;
-import com.github.opensourcefieldlinguistics.fielddb.database.User;
-import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
+import com.github.fielddb.database.DatumContentProvider;
+import com.github.fielddb.database.FieldDBUserContentProvider;
+import com.github.fielddb.database.User;
+import com.github.fielddb.database.DatumContentProvider.DatumTable;
+import com.github.fielddb.database.UserContentProvider.UserTable;
+import com.github.fielddb.lessons.Config;
+import com.github.fielddb.service.DownloadDatumsService;
+import com.github.fielddb.service.KartuliSMSCorpusService;
+import com.github.fielddb.service.RegisterUserService;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.BuildConfig;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
-import com.github.opensourcefieldlinguistics.fielddb.service.DownloadDatumsService;
-import com.github.opensourcefieldlinguistics.fielddb.service.KartuliSMSCorpusService;
-import com.github.opensourcefieldlinguistics.fielddb.service.RegisterUserService;
 
 import android.app.Application;
 import android.content.Context;

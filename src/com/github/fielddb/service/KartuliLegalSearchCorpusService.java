@@ -1,11 +1,11 @@
-package com.github.opensourcefieldlinguistics.fielddb.service;
+package com.github.fielddb.service;
 
 import java.util.ArrayList;
 
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider;
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider.DatumTable;
-import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
-import com.github.opensourcefieldlinguistics.fielddb.model.Datum;
+import com.github.fielddb.database.DatumContentProvider;
+import com.github.fielddb.database.DatumContentProvider.DatumTable;
+import com.github.fielddb.lessons.Config;
+import com.github.fielddb.model.Datum;
 
 import android.app.IntentService;
 import android.content.ContentValues;
@@ -14,15 +14,15 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-public class KartuliSMSCorpusService extends IntentService {
+public class KartuliLegalSearchCorpusService extends IntentService {
 	private ArrayList<Datum> smsSamples;
 
-	public KartuliSMSCorpusService(String name) {
+	public KartuliLegalSearchCorpusService(String name) {
 		super(name);
 		initSmsSamples();
 	}
 
-	public KartuliSMSCorpusService() {
+	public KartuliLegalSearchCorpusService() {
 		super("DownloadDatumsService");
 		initSmsSamples();
 	}
@@ -66,29 +66,24 @@ public class KartuliSMSCorpusService extends IntentService {
 			}
 		}
 
-		Intent updateWebSearchSamples = new Intent(getApplicationContext(),
-				KartuliWebSearchCorpusService.class);
-		getApplicationContext().startService(updateWebSearchSamples);
-		
-
 	}
 	private void initSmsSamples() {
 		this.smsSamples = new ArrayList<Datum>();
 
-		Datum datum = new Datum("სად ხარ??");
-		datum.setUtterance("sad xar??");
-		datum.setId("sms1");
+		Datum datum = new Datum("ხელშეკრულების სტანდარტული პირობები");
+		datum.setUtterance("khelshek'rulebis st'andart'uli p'irobebi");
+		datum.setId("legal1");
 		datum.setRev("");
 		datum.setContext("");
-		datum.setTagsFromSting("SMS");
+		datum.setTagsFromSting("LegalSearch");
 		this.smsSamples.add(datum);
 
-		datum = new Datum("ახლა არ მცალია და საგამოს გადმოვალ.");
-		datum.setUtterance("axla ar mcalia da sagamos gadmoval.");
-		datum.setId("sms2");
+		datum = new Datum("ნასყიდობის ხელშეკრულება");
+		datum.setUtterance("nasqidobis khelshek'ruleba");
+		datum.setId("legal2");
 		datum.setRev("");
 		datum.setContext("");
-		datum.setTagsFromSting("SMS");
+		datum.setTagsFromSting("LegalSearch");
 		this.smsSamples.add(datum);
 
 	}

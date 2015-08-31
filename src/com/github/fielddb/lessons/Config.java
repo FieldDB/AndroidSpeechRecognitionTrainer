@@ -1,6 +1,6 @@
-package com.github.opensourcefieldlinguistics.fielddb.lessons;
+package com.github.fielddb.lessons;
 
-public class Config extends com.github.opensourcefieldlinguistics.fielddb.Config {
+public class Config extends com.github.fielddb.Config {
   public static final boolean D                                  = true;
   public static final String  ACRA_PASS                          = PrivateConstants.ACRA_PASS;
   public static final String  ACRA_SERVER_URL                    = PrivateConstants.ACRA_SERVER_URL;

@@ -1,9 +1,9 @@
-package com.github.opensourcefieldlinguistics.fielddb.lessons.ui;
+package com.github.fielddb.lessons.ui;
 
 import org.acra.ACRA;
 
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider;
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider.DatumTable;
+import com.github.fielddb.database.DatumContentProvider;
+import com.github.fielddb.database.DatumContentProvider.DatumTable;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.BuildConfig;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 

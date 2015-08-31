@@ -1,11 +1,12 @@
-package com.github.opensourcefieldlinguistics.fielddb.lessons.ui;
+package com.github.fielddb.lessons.ui;
 
 import java.util.ArrayList;
 
 import org.acra.ACRA;
 
-import com.github.opensourcefieldlinguistics.datacollection.DeviceDetails;
-import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
+import com.github.fielddb.experimentation.ui.ProductionExperimentActivity;
+import com.github.fielddb.lessons.Config;
+import com.github.fielddb.datacollection.DeviceDetails;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.BuildConfig;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 

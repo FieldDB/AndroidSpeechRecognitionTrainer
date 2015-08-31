@@ -1,11 +1,11 @@
-package com.github.opensourcefieldlinguistics.fielddb.service;
+package com.github.fielddb.service;
 
 import java.util.ArrayList;
 
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider;
-import com.github.opensourcefieldlinguistics.fielddb.database.DatumContentProvider.DatumTable;
-import com.github.opensourcefieldlinguistics.fielddb.lessons.Config;
-import com.github.opensourcefieldlinguistics.fielddb.model.Datum;
+import com.github.fielddb.database.DatumContentProvider;
+import com.github.fielddb.database.DatumContentProvider.DatumTable;
+import com.github.fielddb.lessons.Config;
+import com.github.fielddb.model.Datum;
 
 import android.app.IntentService;
 import android.content.ContentValues;

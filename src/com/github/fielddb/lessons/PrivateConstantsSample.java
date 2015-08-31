@@ -1,4 +1,4 @@
-package com.github.opensourcefieldlinguistics.fielddb.lessons;
+package com.github.fielddb.lessons;
 
 /**
  * 
