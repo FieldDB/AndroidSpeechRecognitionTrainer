@@ -64,6 +64,9 @@ public class KartuliWebSearchCorpusService extends IntentService {
 					e.printStackTrace();
 				}
 			}
+			if (cursor != null){
+        cursor.close();
+      }
 		}
 
 		Intent updateLegalSearchSamples = new Intent(getApplicationContext(),

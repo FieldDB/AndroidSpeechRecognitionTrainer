@@ -64,6 +64,9 @@ public class KartuliSMSCorpusService extends IntentService {
 					e.printStackTrace();
 				}
 			}
+			if (cursor != null){
+			  cursor.close();
+			}
 		}
 
 		Intent updateWebSearchSamples = new Intent(getApplicationContext(),

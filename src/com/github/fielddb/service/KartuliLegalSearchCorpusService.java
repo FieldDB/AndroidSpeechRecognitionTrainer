@@ -64,6 +64,10 @@ public class KartuliLegalSearchCorpusService extends IntentService {
 					e.printStackTrace();
 				}
 			}
+			
+			if (cursor != null){
+        cursor.close();
+      }
 		}
 
 	}
