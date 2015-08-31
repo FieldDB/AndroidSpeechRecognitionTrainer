@@ -31,7 +31,7 @@ import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
-import com.github.fielddb.lessons.Config;
+import com.github.fielddb.Config;
 import com.github.fielddb.service.PocketSphinxRecognitionService;
 import com.github.fielddb.service.UploadAudioVideoService;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;

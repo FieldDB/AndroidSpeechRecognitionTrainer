@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.github.fielddb.database.DatumContentProvider;
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
-import com.github.fielddb.lessons.Config;
+import com.github.fielddb.Config;
 import com.github.fielddb.model.Datum;
 
 import android.app.IntentService;
