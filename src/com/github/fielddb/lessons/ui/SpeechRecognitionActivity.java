@@ -1,10 +1,9 @@
 package com.github.fielddb.lessons.ui;
 
-import org.acra.ACRA;
 
+import com.github.fielddb.BugReporter;
 import com.github.fielddb.database.DatumContentProvider;
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
-import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.BuildConfig;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
 import android.content.ContentValues;
@@ -37,11 +36,7 @@ public class SpeechRecognitionActivity extends FragmentActivity {
 			Uri newDatum = this.getContentResolver().insert(
 					DatumContentProvider.CONTENT_URI, values);
 			if (newDatum == null) {
-				if (!BuildConfig.DEBUG)
-					ACRA.getErrorReporter()
-							.handleException(
-									new Exception(
-											"*** Error inserting a speech recognition datum in DB ***"));
+        BugReporter.sendBugReport("*** Error inserting a speech recognition datum in DB ***");
 			}
 			Bundle arguments = new Bundle();
 			arguments.putString(DatumDetailFragment.ARG_ITEM_ID,

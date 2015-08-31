@@ -2,12 +2,11 @@ package com.github.fielddb.lessons.ui;
 
 import java.util.ArrayList;
 
-import org.acra.ACRA;
 
 import com.github.fielddb.experimentation.ui.ProductionExperimentActivity;
-import com.github.fielddb.lessons.Config;
+import com.github.fielddb.BugReporter;
+import com.github.fielddb.Config;
 import com.github.fielddb.datacollection.DeviceDetails;
-import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.BuildConfig;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
 import android.app.Activity;
@@ -29,33 +28,12 @@ public class WelcomeActivity extends Activity {
         if (this.mDeviceDetails == null) {
             this.mDeviceDetails = new DeviceDetails(this, Config.D, Config.TAG);
         }
-        if (!BuildConfig.DEBUG) {
-            String eventType = "login";
-            ACRA.getErrorReporter().putCustomData(
-                    "action",
-                    "{\"" + eventType + "\" : \"" + "KartuliSpeechRecognizer"
-                            + "\"}");
-            ACRA.getErrorReporter().putCustomData("androidTimestamp",
-                    System.currentTimeMillis() + "");
-            ACRA.getErrorReporter().putCustomData("deviceDetails",
-                    this.mDeviceDetails.getCurrentDeviceDetails());
-            ACRA.getErrorReporter().handleException(
-                    new Exception("*** User event " + eventType + " ***"));
-        }
+    BugReporter.putCustomData("deviceDetails", this.mDeviceDetails.getCurrentDeviceDetails());
+    com.github.fielddb.model.Activity.sendActivity("login", "KartuliSpeechRecognizer");
     }
 
     public void onTrainClick(View view) {
-        if (!BuildConfig.DEBUG) {
-            String eventType = "openedTrainer";
-            ACRA.getErrorReporter().putCustomData("action",
-                    "{\"" + eventType + "\" : \"" + "trainer" + "\"}");
-            ACRA.getErrorReporter().putCustomData("androidTimestamp",
-                    System.currentTimeMillis() + "");
-            ACRA.getErrorReporter().putCustomData("deviceDetails",
-                    this.mDeviceDetails.getCurrentDeviceDetails());
-            ACRA.getErrorReporter().handleException(
-                    new Exception("*** User event " + eventType + " ***"));
-        }
+    com.github.fielddb.model.Activity.sendActivity("openedTrainer", "trainer");
 
         Intent openTrainer = new Intent(this,
                 ProductionExperimentActivity.class);
@@ -66,19 +44,10 @@ public class WelcomeActivity extends Activity {
         // Intent openRecognizer = new Intent(this,
         // SpeechRecognitionActivity.class);
         // startActivity(openRecognizer);
-        if (!BuildConfig.DEBUG) {
-            String eventType = "requestedRecognizeSpeech";
-            ACRA.getErrorReporter().putCustomData(
-                    "action",
-                    "{\"" + eventType + "\" : \""
-                            + RecognizerIntent.ACTION_RECOGNIZE_SPEECH + "\"}");
-            ACRA.getErrorReporter().putCustomData("androidTimestamp",
-                    System.currentTimeMillis() + "");
-            ACRA.getErrorReporter().putCustomData("deviceDetails",
-                    this.mDeviceDetails.getCurrentDeviceDetails());
-            ACRA.getErrorReporter().handleException(
-                    new Exception("*** User event " + eventType + " ***"));
-        }
+      BugReporter.putCustomData("deviceDetails", this.mDeviceDetails.getCurrentDeviceDetails());
+      com.github.fielddb.model.Activity
+        .sendActivity("requestedRecognizeSpeech", RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+          
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
@@ -114,16 +83,7 @@ public class WelcomeActivity extends Activity {
             } else {
                 eventDetails = "recognition returned no result";
             }
-            if (!BuildConfig.DEBUG) {
-                ACRA.getErrorReporter().putCustomData("action",
-                        "{\"" + eventType + "\" : \"" + eventDetails + "\"}");
-                ACRA.getErrorReporter().putCustomData("androidTimestamp",
-                        System.currentTimeMillis() + "");
-                ACRA.getErrorReporter().putCustomData("deviceDetails",
-                        this.mDeviceDetails.getCurrentDeviceDetails());
-                ACRA.getErrorReporter().handleException(
-                        new Exception("*** User event " + eventType + " ***"));
-            }
+      com.github.fielddb.model.Activity.sendActivity(eventType, eventDetails);
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
