@@ -51,6 +51,11 @@ public class KartuliLegalSearchCorpusService extends IntentService {
           datumAsValues.put(DatumTable.COLUMN_CONTEXT, datum.getContext());
           datumAsValues.put(DatumTable.COLUMN_TAGS, datum.getTagsString());
 
+          Intent transferFile = new Intent(getApplicationContext(), DownloadFilesService.class);
+          transferFile.putExtra(Config.EXTRA_RESULT_FILENAME, "legal_search_selected.png");
+          getApplicationContext().startService(transferFile);
+          datumAsValues.put(DatumTable.COLUMN_IMAGE_FILES, "legal_search_selected.png");
+          
           uri = getContentResolver().insert(DatumContentProvider.CONTENT_URI, datumAsValues);
         } catch (Exception e) {
           Log.d(Config.TAG, "Failed to insert this sample most likely something was missing from the server...");

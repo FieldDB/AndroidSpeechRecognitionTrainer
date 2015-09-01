@@ -110,6 +110,8 @@
         </service>
         <service android:name="com.github.fielddb.service.DownloadDatumsService" >
         </service>
+        <service android:name="com.github.fielddb.service.DownloadFilesService" >
+        </service>
         <service android:name="com.github.fielddb.service.RegisterUserService" >
         </service>
         <service android:name="com.github.fielddb.service.UploadAudioVideoService" >
