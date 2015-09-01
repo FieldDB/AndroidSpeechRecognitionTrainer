@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.github.fielddb.experimentation.ui.ProductionExperimentActivity;
 import com.github.fielddb.BugReporter;
-import com.github.fielddb.Config;
 import com.github.fielddb.datacollection.DeviceDetails;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
@@ -25,7 +24,7 @@ public class WelcomeActivity extends Activity {
     super.onCreate(savedInstanceState);
     super.setContentView(R.layout.activity_welcome);
     if (this.mDeviceDetails == null) {
-      this.mDeviceDetails = new DeviceDetails(this, Config.D, Config.TAG);
+      this.mDeviceDetails = new DeviceDetails(this);
     }
     BugReporter.putCustomData("deviceDetails", this.mDeviceDetails.getCurrentDeviceDetails());
     com.github.fielddb.model.Activity.sendActivity("login", "KartuliSpeechRecognizer");
