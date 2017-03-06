@@ -31,6 +31,17 @@ local.properties
 .idea
 *.sublime-*
 
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+
+
 build
 bin
 gen
@@ -84,4 +95,4 @@ build.xml
 .idea/*
 
 
-!**/gradle/wrapper/gradle-wrapper.jar 
+!**/gradle/wrapper/gradle-wrapper.jar
