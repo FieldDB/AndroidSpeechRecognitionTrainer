@@ -1,4 +1,4 @@
-An Android app which lets the user build a custom visual and auditory vocabulary, useful for guided anomia treatment and self designed language lessons by heritage speakers. 
+An Android app which lets the user build a custom visual and auditory vocabulary, useful for guided anomia treatment and self designed language lessons by heritage speakers.
 
 Plugs into FieldDB databases to create language learning apps.
 
@@ -18,3 +18,26 @@ Phone uses list:
 
 And a separate detail screen (here with speech recognition showing)
 ![learn_x_phone_speech_recognition](https://f.cloud.github.com/assets/196199/2483269/837d01f0-b0fe-11e3-8707-748ab9b02022.png)
+
+
+### Development
+
+Copy the sample constants file
+
+```bash
+cp app/src/main/java/com/github/fielddb/lessons/PrivateConstantsSample.java app/src/main/java/com/github/fielddb/lessons/PrivateConstants.java
+```
+
+Edit the class to be `PrivateConstants` instead of `PrivateConstantsSample`
+
+```java
+public class PrivateConstants {
+```
+
+Use the command line (or Android Studio) to build the app:
+
+
+```bash
+export MODULE_DIR=/path/to/where/AndroidFieldDB/is
+./gradlew installDebug
+```

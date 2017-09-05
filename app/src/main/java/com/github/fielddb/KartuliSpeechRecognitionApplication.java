@@ -16,7 +16,7 @@ import org.acra.annotation.ReportsCrashes;
 
 import com.github.fielddb.database.DatumContentProvider;
 import com.github.fielddb.database.FieldDBUserContentProvider;
-import com.github.fielddb.database.User;
+import com.github.fielddb.model.User;
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
 import com.github.fielddb.database.UserContentProvider.UserTable;
 import com.github.fielddb.lessons.Config;
@@ -43,8 +43,8 @@ public class KartuliSpeechRecognitionApplication extends Application {
 
   @Override
   public final void onCreate() {
-    DatumContentProvider.setAppType(Config.APP_TYPE);
-    DatumContentProvider.setDataIsAboutLanguageName(Config.DATA_IS_ABOUT_LANGUAGE_NAME_ASCII);
+//    DatumContentProvider.setAppType(Config.APP_TYPE);
+//    DatumContentProvider.setDataIsAboutLanguageName(Config.DATA_IS_ABOUT_LANGUAGE_NAME_ASCII);
     super.onCreate();
     String language = forceLocale(Config.DATA_IS_ABOUT_LANGUAGE_ISO);
     Log.d(Config.TAG, "Forced the locale to " + language);
@@ -166,7 +166,7 @@ public class KartuliSpeechRecognitionApplication extends Application {
       CursorLoader loader = new CursorLoader(getApplicationContext(), DatumContentProvider.CONTENT_URI, datumProjection, null, null, null);
       Cursor datumCursor = loader.loadInBackground();
       if (datumCursor.getCount() == 0) {
-        getContentResolver().insert(DatumContentProvider.CONTENT_URI, DatumTable.sampleData());
+//        getContentResolver().insert(DatumContentProvider.CONTENT_URI, DatumTable.sampleData());
         Intent updateSMSSamples = new Intent(getApplicationContext(), KartuliSMSCorpusService.class);
         getApplicationContext().startService(updateSMSSamples);
       }
