@@ -64,7 +64,8 @@ target
 *.dmg
 *.gz
 *.iso
-*.jar
+*.aar
+#*.jar
 *.rar
 *.tar
 *.zip
