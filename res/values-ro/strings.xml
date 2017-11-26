@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Learn X</string>
+    <string name="speech_app_name">LRL Speech Recognition</string>
+    <string name="title_datum_detail">Datum</string>
+    <string name="app_explanation">Field linguists and open source developers have gotten together to create  a speech recognizer for low resource language speakers. You can use this application to prepare your Android to guess your speech. You need to read some suggestions and then contact WiFi in order to prepare your sound model. We expect that after reading some training sentences we will have a better result. Because the low resource languages are different from other languages ​​so we do not know how much this application will be useful. You can try it, it is more experimental and used for research, so we can not guarantee that it will be useful. Here's our slide link: http://batumi.github.io Here is our privacy policy: https://www.lingsync.org/privacy.html</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="are_you_sure_put_in_trash">Are you sure you want to put this datum in the trash?</string>
+
+    <!-- Recognition prompts -->
+    <string name="im_listening">I\'m listening</string>
+    <string name="i_might_have_heard">I might have heard: </string>
+    <string name="or_maybe">Or maybe this: </string>
+    <string name="there_were_others">. I\'m pretty funny, ey? There were some other options, but I think I\'ll stop there. </string>
+    <string name="train">Train</string>
+    <string name="recognize">Recognize</string>
+    <string name="tap_to_speak">Tap to speak again</string>
+    <string name="tap_to_end">Tap to end</string>
+    <string name="speak_now">Speak now</string>
+    <string name="dialog_continue_to_advanced_training">Add your own words?</string>
+    <string name="continue_word">Continue</string>
+    <string name="finished">Enough</string>
+    <string name="context">Context</string>
+    <string name="orthography">Words</string>
+    <string name="tag_hint">WebSearch, SMS, Email</string>
+    <string name="translation_hint"></string>
+    <string name="remove">Remove</string>
+    <string name="no_recognized_result">I didn\'t hear anything...</string>
+    <string name="hypothesis">Hypothesis</string>
+
+    <!-- PocketSphinx -->
+
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="kws_caption">To start demonstration say \"okay android\".</string>
+    <string name="menu_caption">Say \"digits\" or \"forecast\" to choose particular example.</string>
+    <string name="digits_caption">Let\'s recognize some digits: say something like \"one two three four five\".</string>
+    <string name="forecast_caption">Say something typical to a weather forecast like \"sunny spells on Wednesday\".</string>
+
+</resources>
