@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Invata X</string>
+    <string name="speech_app_name">LRL Recunoastere Vocala</string>
+    <string name="title_datum_detail">Datum</string>
+    <string name="app_explanation"> Suntem o echipa de lingvisti si programatori care si-au propus sa creeze un sistem de recunoastere vocala pentru limbile mai putin folosite la nivel global. Aceasta aplicatie poate contribui la recunoasterea propriei tale voci de catre Android-ul personal. Tot ce trebuie sa faci e sa citesti cateva sugestii si apoi sa contactezi WiFi pentru a-ti incarca prototipul. Este de asteptat ca recunoasterea sa fie ameliorata dupa ce vei citi cateva propozitii simple pentru a obisnui sistemul cu vocea ta. Pentru ca limbile cu resurse tehnologice limitate sunt diferite de limbile folosite la scara internationala, nu putem prezice cat de bine va functiona aceasta aplicatie. Incercand-o, vei contribui la dezvoltarea ei si la munca de cercetare, dar nu putem garanta ca iti va folosi foarte mult la nivel personal. Poti citi mai multe aici: http://batumi.github.io Iar aici sunt regulile noastre de confidentialitate: https://www.lingsync.org/privacy.html</string>
+    <string name="are_you_sure">Esti sigur?</string>
+    <string name="are_you_sure_put_in_trash">Esti sigur ca vrei sa stergi aceste date?</string>
+
+    <!-- Recognition prompts -->
+    <string name="im_listening">Te ascult.</string>
+    <string name="i_might_have_heard">Cred ca am auzit: </string>
+    <string name="or_maybe">Sau poate: </string>
+    <string name="there_were_others">. Te fac sa razi, nu? Ar fi fost si alte optiuni, dar cred ca o sa ma opresc aici. </string>
+    <string name="train">Antrenament in curs</string>
+    <string name="recognize">Recunoastere</string>
+    <string name="tap_to_speak">Atinge ecranul ca sa re-inregistrezi</string>
+    <string name="tap_to_end">Atinge ecranul ca sa parasesti aplicatia</string>
+    <string name="speak_now">Vorbeste acum</string>
+    <string name="dialog_continue_to_advanced_training">Vrei sa adaugi propriile tale cuvinte?</string>
+    <string name="continue_word">Continua</string>
+    <string name="finished">De-ajuns.</string>
+    <string name="context">Context</string>
+    <string name="orthography">Cuvinte</string>
+    <string name="tag_hint">Cautare web, SMS, Email</string>
+    <string name="translation_hint"></string>
+    <string name="remove">Sterge.</string>
+    <string name="no_recognized_result">Nu s-a auzit nimic...</string>
+    <string name="hypothesis">Ipoteza</string>
+
+    <!-- PocketSphinx -->
+
+    <string name="start">Incepe</string>
+    <string name="stop">Opreste-te.</string>
+    <string name="kws_caption">Pentru a incepe demonstratia, spune \"okay android\".</string>
+    <string name="menu_caption">Spune \"numere\" or \"cum e vremea?\" pentru a face o selectie.</string>
+    <string name="digits_caption">Sa practicam recunoasterea numerelor: spune cateva cifre, cum ar fi \"unu doi trei patru cinci\".</string>
+    <string name="forecast_caption">Spune cateva cuvinte in genul celor de la emisiunea starea vremii, cum ar fi \"miercuri se anunta soare\".</string>
+
+</resources>
+
