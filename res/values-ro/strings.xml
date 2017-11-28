@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Learn X</string>
-    <string name="speech_app_name">LRL Speech Recognition</string>
+    <string name="app_name">Invata X</string>
+    <string name="speech_app_name">LRL Recunoastere Vocala</string>
     <string name="title_datum_detail">Datum</string>
     <string name="app_explanation"> Suntem o echipa de lingvisti si programatori care si-au propus sa creeze un sistem de recunoastere vocala pentru limbile mai putin folosite la nivel global. Aceasta aplicatie poate contribui la recunoasterea propriei tale voci de catre Android-ul personal. Tot ce trebuie sa faci e sa citesti cateva sugestii si apoi sa contactezi WiFi pentru a-ti incarca prototipul. Este de asteptat ca recunoasterea sa fie ameliorata dupa ce vei citi cateva propozitii simple pentru a obisnui sistemul cu vocea ta. Pentru ca limbile cu resurse tehnologice limitate sunt diferite de limbile folosite la scara internationala, nu putem prezice cat de bine va functiona aceasta aplicatie. Incercand-o, vei contribui la dezvoltarea ei si la munca de cercetare, dar nu putem garanta ca iti va folosi foarte mult la nivel personal. Poti citi mai multe aici: http://batumi.github.io Iar aici sunt regulile noastre de confidentialitate: https://www.lingsync.org/privacy.html</string>
     <string name="are_you_sure">Esti sigur?</string>
