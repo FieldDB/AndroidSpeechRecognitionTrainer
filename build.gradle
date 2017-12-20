@@ -21,9 +21,9 @@ allprojects {
         maven {
             url "https://dl.bintray.com/fielddb/maven"
         }
-        maven {
-            url "https://dl.bintray.com"
-        }
+//        maven {
+//            url "https://dl.bintray.com"
+//        }
         flatDir {
             dirs 'libs'
         }
