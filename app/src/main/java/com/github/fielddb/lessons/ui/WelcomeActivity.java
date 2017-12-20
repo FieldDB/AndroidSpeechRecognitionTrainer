@@ -27,7 +27,7 @@ public class WelcomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_welcome);
         if (this.mDeviceDetails == null) {
-            this.mDeviceDetails = new DeviceDetails(this, Config.D, Config.TAG);
+            this.mDeviceDetails = new DeviceDetails(this);
         }
         if (!BuildConfig.DEBUG) {
             String eventType = "login";
