@@ -11,7 +11,9 @@ import com.github.fielddb.lessons.Config;
 
 import edu.cmu.pocketsphinx.Assets;
 import edu.cmu.pocketsphinx.Hypothesis;
-import edu.cmu.pocketsphinx.RecognitionListener;
+
+import android.os.Bundle;
+import android.speech.RecognitionListener;
 import edu.cmu.pocketsphinx.SpeechRecognizer;
 import android.app.Service;
 import android.content.Intent;
@@ -21,8 +23,7 @@ import android.speech.RecognizerIntent;
 import android.util.Log;
 import android.widget.Toast;
 
-public class PocketSphinxRecognitionService extends Service implements
-        RecognitionListener {
+public class PocketSphinxRecognitionService extends Service implements RecognitionListener {
 
     private SpeechRecognizer recognizer;
     public static final String FREEFORM_SPEECH = "freeform";
@@ -61,8 +62,8 @@ public class PocketSphinxRecognitionService extends Service implements
         if (recognizer != null) {
             recognizer.stop();
         }
-        Hypothesis completedHypoth = new Hypothesis("recognitionCancelled",
-                "cancelled", 0);
+        Hypothesis completedHypoth = new Hypothesis("recognitionCancelled", 0, 0);
+//        Hypothesis completedHypoth = new Hypothesis("recognitionCancelled", "cancelled", 0);
         broadcast(completedHypoth, true);
     }
 
@@ -130,6 +131,50 @@ public class PocketSphinxRecognitionService extends Service implements
         onCancel(callback);
     }
 
+    public void onEvent (int eventType, Bundle params ){
+        Log.d(Config.TAG, "onEvent " + eventType);
+    }
+
+    public void onPartialResults (Bundle params) {
+        Log.d(Config.TAG, "onPartialResults ");
+    }
+
+    public void onBufferReceived(byte[] buffer) {
+        Log.d(Config.TAG, "onBufferReceived ");
+    }
+
+    public void onResults (Bundle params) {
+        Log.d(Config.TAG, "onResults ");
+    }
+
+    // @Override
+    public void onTimeout() {
+        Log.d(Config.TAG, "onTimeout");
+        onEndOfSpeech();
+    }
+
+    @Override
+    public void onError(int error) {
+        Log.d(Config.TAG, "onError "+ error);
+        onEndOfSpeech();
+    }
+
+    // @Override
+    public void onError(Exception exception) {
+        Log.d(Config.TAG, "onError");
+        onEndOfSpeech();
+    }
+
+    @Override
+    public void onReadyForSpeech(Bundle bundle) {
+        Log.d(Config.TAG, "onReadyForSpeech");
+    }
+
+    @Override
+    public void onRmsChanged(float v) {
+        Log.d(Config.TAG, "onRmsChanged");
+    }
+
     private void setupRecognizer() {
         try {
             Assets assets;
@@ -191,7 +236,7 @@ public class PocketSphinxRecognitionService extends Service implements
         // switchSearch(KWS_SEARCH);
     }
 
-    @Override
+    // @Override
     public void onPartialResult(Hypothesis hypothesis) {
         if (hypothesis == null) {
             return;
@@ -209,7 +254,7 @@ public class PocketSphinxRecognitionService extends Service implements
         // }
     }
 
-    @Override
+    // @Override
     public void onResult(Hypothesis hypothesis) {
         Log.d(Config.TAG, "Hypothesis result recieved");
         broadcast(hypothesis, true);
@@ -228,7 +273,7 @@ public class PocketSphinxRecognitionService extends Service implements
         ArrayList<String> confidences = new ArrayList<String>();
         confidences.add(hypothesis.getBestScore() + "");
 
-        String audioFile = "sync/" + hypothesis.getUttid()
+        String audioFile = "sync/" + System.currentTimeMillis() // hypothesis.getUttid()
                 + Config.DEFAULT_RECOGNIZER_AUDIO_EXTENSION;
 
         Intent i = new Intent(Config.INTENT_PARTIAL_SPEECH_RECOGNITION_RESULT);

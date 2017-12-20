@@ -17,7 +17,7 @@ public class Config extends com.github.fielddb.Config {
   public static final String  DEFAULT_AUTH_LOGIN_URL             = PrivateConstants.DEFAULT_AUTH_LOGIN_URL;
   public static final String  DEFAULT_DATA_SERVER_URL            = PrivateConstants.DEFAULT_DATA_SERVER_URL;
   public static String        DEFAULT_OUTPUT_DIRECTORY           = "/sdcard/" + DATA_IS_ABOUT_LANGUAGE_NAME_ASCII + "-" + APP_TYPE + "/"
-                                                                     + DEFAULT_CORPUS;
+                                                                     + DEFAULT_CORPUS + "/sync";
   public static final String  DEFAULT_PUBLIC_USER_PASS           = PrivateConstants.DEFAULT_PUBLIC_USER_PASS;
   public static final String  DEFAULT_PUBLIC_USERNAME            = PrivateConstants.DEFAULT_PUBLIC_USERNAME;
   public static final String  DEFAULT_UPLOAD_TOKEN               = PrivateConstants.DEFAULT_UPLOAD_TOKEN;

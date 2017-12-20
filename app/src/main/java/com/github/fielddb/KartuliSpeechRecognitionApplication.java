@@ -142,7 +142,7 @@ public class KartuliSpeechRecognitionApplication extends Application {
     Config.DEFAULT_CORPUS = Config.DEFAULT_CORPUS.replace("username", username);
     Config.CURRENT_USERNAME = username;
     Config.DEFAULT_OUTPUT_DIRECTORY = "/sdcard/" + Config.DATA_IS_ABOUT_LANGUAGE_NAME_ASCII + "-" + Config.APP_TYPE + "/"
-        + Config.DEFAULT_CORPUS;
+        + Config.DEFAULT_CORPUS + "/sync";
     (new File(Config.DEFAULT_OUTPUT_DIRECTORY)).mkdirs();
 
     if (!BuildConfig.DEBUG) {
