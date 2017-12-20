@@ -27,6 +27,7 @@ import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.BuildConfig;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
 import android.app.Application;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
@@ -43,8 +44,6 @@ public class KartuliSpeechRecognitionApplication extends Application {
 
   @Override
   public final void onCreate() {
-//    DatumContentProvider.setAppType(Config.APP_TYPE);
-//    DatumContentProvider.setDataIsAboutLanguageName(Config.DATA_IS_ABOUT_LANGUAGE_NAME_ASCII);
     super.onCreate();
     String language = forceLocale(Config.DATA_IS_ABOUT_LANGUAGE_ISO);
     Log.d(Config.TAG, "Forced the locale to " + language);
@@ -166,7 +165,13 @@ public class KartuliSpeechRecognitionApplication extends Application {
       CursorLoader loader = new CursorLoader(getApplicationContext(), DatumContentProvider.CONTENT_URI, datumProjection, null, null, null);
       Cursor datumCursor = loader.loadInBackground();
       if (datumCursor.getCount() == 0) {
-//        getContentResolver().insert(DatumContentProvider.CONTENT_URI, DatumTable.sampleData());
+        ContentValues values = new ContentValues();
+        values.put(DatumTable.COLUMN_ID, "instructions");
+        values.put(DatumTable.COLUMN_UTTERANCE, R.string.training_instructions);
+        values.put(DatumTable.COLUMN_ORTHOGRAPHY, R.string.training_instructions);
+        values.put(DatumTable.COLUMN_CONTEXT, R.string.training_context);
+        getContentResolver().insert(DatumContentProvider.CONTENT_URI, values);
+
         Intent updateSMSSamples = new Intent(getApplicationContext(), KartuliSMSCorpusService.class);
         getApplicationContext().startService(updateSMSSamples);
       }

@@ -22,5 +22,6 @@
     <string name="orthography">ფრაზა</string>
     <string name="tag_hint">ინტერნეტ ძიება, ტექქსტური შეტყობინება, ელექქტრონული წერილი </string>
     <string name="translation_hint"> </string>
-    
+    <string name="training_instructions">შენ უნდა წაიკითხო რამოდენიმე წინადადება, რათა გადაამზადო აპლიკაცია შენს ხმაზე და შენს სიტყვებზე</string>
+
 </resources>

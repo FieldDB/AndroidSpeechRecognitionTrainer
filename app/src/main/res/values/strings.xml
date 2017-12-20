@@ -28,6 +28,8 @@
     <string name="remove">Remove</string>
     <string name="no_recognized_result">I didn\'t hear anything...</string>
     <string name="hypothesis">Hypothesis</string>
+    <string name="training_instructions">You need to read a few sentences to train the recognizer to your voice and your words</string>
+    <string name="training_context">The Georgian language is very complex and very different from other languages which were used to build Speech Recognition systems. This means each person should have their own recognizer.</string>
 
     <!-- PocketSphinx -->
 
