@@ -1,19 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ქართული</string>
-    <string name="speech_app_name">ქართული</string>
-    <string name="title_datum_detail">ფრაზა</string>
-    <string name="app_explanation">ბათუმი აპლიკაციის დეველოპერები  გაერთიანდნენ ღია ველის ენათმეცნიერები  რათა შექმნან სიტყვის გამომცნობი ქართული ენის მოსაუბრეებთათვის. შენ შეგიძლია ისარგებლო ამ აპლიკაციით, მოამზადო შენი ანდროიდი, რათა გამოიცნო შენი მეტყველება. შენ უნდა წაიკითხო რამოდენიმე წინადადება და შემდეგ დაუკავშირდე WiFi-ს რათა გადაამზადო შენი ხმის მოდელი. ჩვენ ვიმედოვნებთ, რომ გვექნება უკეთესი .გამომცნობი რომელიც იქნება 10%ზე მეტი, თუმცა ქართული ენა განსხვავებულია სხვა ენებისგან, ასე რომ ჩვენ ჯერ არ ვიცით რამდენად გამოსაყენებელი იქნება ეს აპლიკაცია. შენ შეგიძლია სცადო, ეს არის უფრო მეტად ექსპერიმენტული და კვლევის პროგრამული უზრუნველყოფა, ასე რო ჩვენ არ შეგვიძლია მოგცეთ გარანტია, რომ ეს იქნება გამოსაყენებელი. აქ არის ჩვენი სლაიდის ლინკი:  http://batumi.github.io</string>
+    <string name="app_name">Learn X</string>
+    <string name="speech_app_name">LRL Speech Recognition</string>
+    <string name="title_datum_detail">Datum</string>
+    <string name="app_explanation">
+      Field linguists and open source developers have gotten together to create a
+      speech recognizer for low resource language speakers. You can use this
+      application to prepare your Android to guess your speech. You need to read some
+      suggestions and then contact WiFi in order to prepare your voice model. We
+      expect that after reading some training sentences you will have a better result.
+      Because low resource languages are different from other languages ​​so we do
+      not know how useful this application will be. You can try it, it is mostly
+      experimental and used for research, so we can not guarantee that it will be
+      useful. If you use the app to train your recognizer, you agree that we can
+      use the anonymous training recordings to improve the recognizer and for linguistics research.
+      Here's our resulting research: http://batumi.github.io
+      We don't use or share your private data with anyone. Here is our privacy policy:
+      https://www.lingsync.org/privacy.html
+    </string>
     <string name="are_you_sure">Are you sure?</string>
     <string name="are_you_sure_put_in_trash">Are you sure you want to put this datum in the trash?</string>
 
     <!-- Recognition prompts -->
-    <string name="im_listening">გისმენთ</string>
+    <string name="im_listening">I\'m listening</string>
     <string name="i_might_have_heard">I might have heard: </string>
     <string name="or_maybe">Or maybe this: </string>
     <string name="there_were_others">. I\'m pretty funny, ey? There were some other options, but I think I\'ll stop there. </string>
-    <string name="train">წვრთნა</string>
+    <string name="train">Train</string>
     <string name="recognize">Recognize</string>
     <string name="tap_to_speak">Tap to speak again</string>
     <string name="tap_to_end">Tap to end</string>
@@ -21,15 +35,19 @@
     <string name="dialog_continue_to_advanced_training">Add your own words?</string>
     <string name="continue_word">Continue</string>
     <string name="finished">Enough</string>
-    <string name="context">კონტექსტში</string>
-    <string name="orthography">ფრაზა</string>
+    <string name="context">Context</string>
+    <string name="orthography">Words</string>
     <string name="tag_hint">WebSearch, SMS, Email</string>
     <string name="translation_hint"></string>
     <string name="remove">Remove</string>
     <string name="no_recognized_result">I didn\'t hear anything...</string>
     <string name="hypothesis">Hypothesis</string>
     <string name="training_instructions">You need to read a few sentences to train the recognizer to your voice and your words</string>
-    <string name="training_context">The Georgian language is very complex and very different from other languages which were used to build Speech Recognition systems. This means each person should have their own recognizer.</string>
+    <string name="training_context">
+      The Georgian language is very complex and very different from other languages
+      which were used to build Speech Recognition systems. This means each person
+      should have their own recognizer.
+    </string>
 
     <!-- PocketSphinx -->
 
