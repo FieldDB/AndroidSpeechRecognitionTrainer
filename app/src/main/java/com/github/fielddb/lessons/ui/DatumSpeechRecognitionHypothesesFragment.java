@@ -1,7 +1,9 @@
 package com.github.fielddb.lessons.ui;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
@@ -10,10 +12,13 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -42,6 +47,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
   protected boolean mIsRecognizing;
   protected boolean mPerfectMatch;
   protected String mPromptFromCaller;
+  protected static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 487;
   protected static final int RETURN_FROM_VOICE_RECOGNITION_REQUEST_CODE = 341;
   protected EditText orthographyEditText;
   protected EditText hypothesis1EditText;
@@ -488,6 +494,10 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     if (!this.mRecordingAudio) {
       this.mRecordingAudio = true;
 
+      if (!checkAndRequestPermissions()) {
+        return false;
+      }
+
       String audioFileName = Config.DEFAULT_OUTPUT_DIRECTORY + "/" + mItem.getBaseFilename()
           + Config.DEFAULT_AUDIO_EXTENSION;
       this.mAudioFileName = audioFileName;
@@ -699,6 +709,26 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     }
     Log.d(Config.TAG, "showing hypotheses: " + mHypotheses.toString());
     recordUserEvent("recognizedHypotheses", mHypotheses.toString());
+  }
+
+
+  private  boolean checkAndRequestPermissions() {
+    List<String> listPermissionsNeeded = new ArrayList<>();
+
+    if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+      listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    }
+    if (ContextCompat.checkSelfPermission(getActivity(),Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+      listPermissionsNeeded.add(Manifest.permission.ACCESS_FINE_LOCATION);
+    }
+    if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+      listPermissionsNeeded.add(Manifest.permission.RECORD_AUDIO);
+    }
+    if (!listPermissionsNeeded.isEmpty()) {
+      ActivityCompat.requestPermissions(getActivity(), listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]), REQUEST_ID_MULTIPLE_PERMISSIONS);
+      return false;
+    }
+    return true;
   }
 
   @Override

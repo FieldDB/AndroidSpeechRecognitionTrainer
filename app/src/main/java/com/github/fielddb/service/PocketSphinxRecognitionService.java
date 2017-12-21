@@ -62,8 +62,8 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
     if (recognizer != null) {
       recognizer.stop();
     }
-    Hypothesis completedHypoth = new Hypothesis("recognitionCancelled", 0, 0);
-//        Hypothesis completedHypoth = new Hypothesis("recognitionCancelled", "cancelled", 0);
+    Hypothesis completedHypoth = new Hypothesis(null, 0, 0);
+    // Hypothesis completedHypoth = new Hypothesis("recognitionCancelled", "cancelled", 0);
     broadcast(completedHypoth, true);
   }
 
@@ -125,8 +125,9 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
 
   private void setupRecognizer() {
     try {
+      (new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/sync")).mkdirs();
       Assets assets;
-      assets = new Assets(getApplicationContext(), Config.DEFAULT_OUTPUT_DIRECTORY);
+      assets = new Assets(getApplicationContext(), Config.DEFAULT_OUTPUT_DIRECTORY + "/sync");
       File assetDir = assets.syncAssets();
       Log.d(Config.TAG, "Setting up recognizer models");
       File modelsDir = new File(assetDir, "models");

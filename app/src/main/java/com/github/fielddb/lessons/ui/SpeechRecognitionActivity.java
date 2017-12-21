@@ -1,14 +1,20 @@
 package com.github.fielddb.lessons.ui;
 
 import com.github.fielddb.BugReporter;
+import com.github.fielddb.Config;
 import com.github.fielddb.database.DatumContentProvider;
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
+import android.Manifest;
 import android.content.ContentValues;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
+import android.widget.Toast;
 
 public class SpeechRecognitionActivity extends FragmentActivity {
 
@@ -40,6 +46,24 @@ public class SpeechRecognitionActivity extends FragmentActivity {
       DatumSpeechRecognitionHypothesesFragment fragment = new DatumSpeechRecognitionHypothesesFragment();
       fragment.setArguments(arguments);
       getSupportFragmentManager().beginTransaction().add(R.id.datum_detail_container, fragment).commit();
+    }
+  }
+
+  @Override
+  public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    Log.d(Config.TAG, "Permission callback called-------");
+    switch (requestCode) {
+      case DatumSpeechRecognitionHypothesesFragment.REQUEST_ID_MULTIPLE_PERMISSIONS: {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+          Toast.makeText(this, "Unable to record audio, this app wont be able to hear you.", Toast.LENGTH_LONG).show();
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+          Toast.makeText(this, "Unable to copy the recognition model, this app wont be able to recognize your speech.", Toast.LENGTH_LONG).show();
+        }
+
+        // TODO: return to the user's intent
+      }
     }
   }
 }
