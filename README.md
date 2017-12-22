@@ -41,3 +41,13 @@ Use the command line (or Android Studio) to build the app:
 export MODULE_DIR=/path/to/where/AndroidFieldDB/is
 ./gradlew installDebug
 ```
+
+
+### Decoding raw audio
+
+```bash
+$ adb pull /sdcard/kartuli-speechrecognition
+$ cd testinganonymouskartulispeechrecognition1513871391108-kartuli/audio/
+$ ffmpeg -y -f s16le -ar 16k  -i 000000000.raw  -ac 1 000000000.raw.mp3
+```
+
