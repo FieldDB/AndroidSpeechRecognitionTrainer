@@ -126,7 +126,6 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
   private void setupRecognizer() {
     try {
       (new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/sync")).mkdirs();
-      (new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/tmp")).mkdirs();
       Assets assets;
       assets = new Assets(getApplicationContext(), Config.DEFAULT_OUTPUT_DIRECTORY + "/sync");
       File assetDir = assets.syncAssets();
@@ -134,7 +133,7 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
       File modelsDir = new File(assetDir, "models");
       recognizer = defaultSetup().setAcousticModel(new File(modelsDir, "hmm/en-us-semi"))
           .setDictionary(new File(modelsDir, "dict/sms_corpus.dic")).setRawLogDir(assetDir).setKeywordThreshold(1e-40f)
-          .setRawLogDir(new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/tmp")) // Saves utterances to sdcard
+          .setRawLogDir(new File(Config.DEFAULT_OUTPUT_DIRECTORY)) // Saves utterances to sdcard
           .getRecognizer();
       recognizer.addListener(this);
 

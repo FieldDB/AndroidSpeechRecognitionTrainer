@@ -748,6 +748,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     if (this.mAudioFiles != null) {
       String[] files = this.mAudioFiles.split(", ");
       for (String filename : files) {
+        Config.D = false;
         Log.d(Config.TAG, "Requesting upload of recognition audio file " + filename);
         Intent uploadAudioFile = new Intent(getActivity(), UploadAudioVideoService.class);
         uploadAudioFile.setData(Uri.parse(filename));
