@@ -126,6 +126,7 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
   private void setupRecognizer() {
     try {
       (new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/sync")).mkdirs();
+      (new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/tmp")).mkdirs();
       Assets assets;
       assets = new Assets(getApplicationContext(), Config.DEFAULT_OUTPUT_DIRECTORY + "/sync");
       File assetDir = assets.syncAssets();
@@ -133,6 +134,7 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
       File modelsDir = new File(assetDir, "models");
       recognizer = defaultSetup().setAcousticModel(new File(modelsDir, "hmm/en-us-semi"))
           .setDictionary(new File(modelsDir, "dict/sms_corpus.dic")).setRawLogDir(assetDir).setKeywordThreshold(1e-40f)
+          .setRawLogDir(new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/tmp")) // Saves utterances to sdcard
           .getRecognizer();
       recognizer.addListener(this);
 
@@ -176,6 +178,13 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
 
   public void onResults(Bundle params) {
     Log.d(Config.TAG, "onResults ");
+    Intent i = new Intent(Config.INTENT_PARTIAL_SPEECH_RECOGNITION_RESULT);
+    i.putStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS, params.getStringArrayList(RecognizerIntent.EXTRA_RESULTS));
+    i.putExtra(Config.EXTRA_RECOGNITION_COMPLETED, params.getBoolean(RecognizerIntent.EXTRA_PARTIAL_RESULTS));
+
+    i.putExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES, params.getFloatArray(RecognizerIntent.EXTRA_CONFIDENCE_SCORES));
+    i.putExtra(EXTRA_RESULT_AUDIO_FILE, params.getString((SpeechRecognizer.EXTRA_FILENAME)));
+    getApplication().sendBroadcast(i);
   }
 
   // @Override
@@ -242,8 +251,9 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
   }
 
   //  @Override
+  // Deprecated, using Android Recognizer interface instead
   public void onResult(Hypothesis hypothesis) {
-    Log.d(Config.TAG, "Hypothesis result recieved");
+    Log.d(Config.TAG, "Hypothesis result received");
     broadcast(hypothesis, true);
   }
 
