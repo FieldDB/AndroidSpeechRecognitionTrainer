@@ -58,7 +58,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
   protected TableLayout hypothesesArea;
   protected long WAIT_TO_RECORD_AFTER_PROMPT_START = 10;
   protected ArrayList<String> mHypotheses;
-  protected ArrayList<String> mHypothesesConfidences;
+  protected float[] mHypothesesConfidences;
   protected String mPreviousActivityResult;
   protected String mAudioFiles;
 
@@ -646,7 +646,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     }
     mHypotheses = thesesHypotheses;
 
-    mHypothesesConfidences = data.getStringArrayListExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES);
+    mHypothesesConfidences = data.getFloatArrayExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES);
 
     if (hypothesis1EditText != null) {
       if (mHypotheses.size() > 0 && mHypotheses.get(0) != null && !"".equals(mHypotheses.get(0))) {
@@ -804,7 +804,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
 
     Intent returnToCaller = new Intent();
     returnToCaller.putStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS, mHypotheses);
-    returnToCaller.putStringArrayListExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES, mHypothesesConfidences);
+    returnToCaller.putExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES, mHypothesesConfidences);
     getActivity().setResult(Activity.RESULT_OK, returnToCaller);
   }
 
