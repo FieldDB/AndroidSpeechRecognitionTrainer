@@ -3,13 +3,7 @@ package com.github.fielddb.service;
 import static edu.cmu.pocketsphinx.SpeechRecognizerSetup.defaultSetup;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -276,31 +270,8 @@ public class PocketSphinxRecognitionService extends Service implements Recogniti
     ArrayList<String> confidences = new ArrayList<String>();
     confidences.add(hypothesis.getBestScore() + "");
 
-    File directory = new File(Config.DEFAULT_OUTPUT_DIRECTORY + "/tmp");
-    File[] files = directory.listFiles();
-    String audioFile = files[files.length - 1].getName();
-    String outFile = Config.DEFAULT_OUTPUT_DIRECTORY + "/audio_utterance_" + System.currentTimeMillis() + ".raw";
-
-    try {
-      InputStream in = new FileInputStream(audioFile);
-      OutputStream out = new FileOutputStream(outFile);
-
-      // Copy the bits from instream to outstream
-      byte[] buf = new byte[1024];
-      int len;
-      while ((len = in.read(buf)) > 0) {
-        out.write(buf, 0, len);
-      }
-      in.close();
-      out.close();
-
-      audioFile = outFile;
-      Log.d(Config.TAG, "renamed to " + outFile);
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+    String audioFile = "sync/" + System.currentTimeMillis() // hypothesis.getUttid()
+        + Config.DEFAULT_RECOGNIZER_AUDIO_EXTENSION;
 
     Intent i = new Intent(Config.INTENT_PARTIAL_SPEECH_RECOGNITION_RESULT);
     if ("recognitionCancelled".equals(text)) {
