@@ -35,6 +35,7 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
+import com.github.fielddb.lessons.PrivateConstants;
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
 import com.github.fielddb.Config;
 import com.github.fielddb.datacollection.SecureHttpClient;
@@ -763,7 +764,8 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
         return;
       }
       Config.D = false;
-      Log.d(Config.TAG, "Requesting upload of recognition audio file " + filename);
+//      Config.DEFAULT_UPLOAD_AUDIO_VIDEO_URL = PrivateConstants.DEFAULT_UPLOAD_AUDIO_VIDEO_URL;
+      Log.d(Config.TAG, "Requesting upload of recognition audio file " + filename + " to " + Config.DEFAULT_UPLOAD_AUDIO_VIDEO_URL);
       Intent uploadAudioFile = new Intent(getActivity(), UploadAudioVideoService.class);
       uploadAudioFile.setData(Uri.parse(filename));
       uploadAudioFile.putExtra(Config.EXTRA_PARTICIPANT_ID, Config.CURRENT_USERNAME);
