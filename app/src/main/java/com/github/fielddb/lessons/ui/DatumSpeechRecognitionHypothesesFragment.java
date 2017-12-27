@@ -37,6 +37,7 @@ import android.widget.Toast;
 
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
 import com.github.fielddb.Config;
+import com.github.fielddb.datacollection.SecureHttpClient;
 import com.github.fielddb.service.PocketSphinxRecognitionService;
 import com.github.fielddb.service.UploadAudioVideoService;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
@@ -711,7 +712,6 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     recordUserEvent("recognizedHypotheses", mHypotheses.toString());
   }
 
-
   private  boolean checkAndRequestPermissions() {
     List<String> listPermissionsNeeded = new ArrayList<>();
 
@@ -745,20 +745,34 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     if (this.mRecognitionReceiver != null && getActivity() != null) {
       getActivity().unregisterReceiver(this.mRecognitionReceiver);
     }
-    if (this.mAudioFiles != null) {
-      String[] files = this.mAudioFiles.split(", ");
-      for (String filename : files) {
-        Config.D = false;
-        Log.d(Config.TAG, "Requesting upload of recognition audio file " + filename);
-        Intent uploadAudioFile = new Intent(getActivity(), UploadAudioVideoService.class);
-        uploadAudioFile.setData(Uri.parse(filename));
-        uploadAudioFile.putExtra(Config.EXTRA_PARTICIPANT_ID, Config.CURRENT_USERNAME);
-        uploadAudioFile.putExtra(Config.EXTRA_EXPERIMENT_TRIAL_INFORMATION, mDeviceDetails.getCurrentDeviceDetails());
-        getActivity().startService(uploadAudioFile);
-      }
+    if (this.mAudioFiles == null) {
+      super.onDestroy();
+      return;
     }
-    super.onDestroy();
+    if (!SecureHttpClient.checkAndRequestPermissions(getActivity(), REQUEST_ID_MULTIPLE_PERMISSIONS)) {
+      super.onDestroy();
+      Log.d(Config.TAG, "Missing permissions to upload of audio files ");
+      return;
+    }
+    boolean sentOne = false;
 
+    String[] files = this.mAudioFiles.split(", ");
+    for (String filename : files) {
+      if (sentOne) { // TODO find out why there are duplicate filenames
+        super.onDestroy();
+        return;
+      }
+      Config.D = false;
+      Log.d(Config.TAG, "Requesting upload of recognition audio file " + filename);
+      Intent uploadAudioFile = new Intent(getActivity(), UploadAudioVideoService.class);
+      uploadAudioFile.setData(Uri.parse(filename));
+      uploadAudioFile.putExtra(Config.EXTRA_PARTICIPANT_ID, Config.CURRENT_USERNAME);
+      uploadAudioFile.putExtra(Config.EXTRA_EXPERIMENT_TRIAL_INFORMATION, mDeviceDetails.getCurrentDeviceDetails());
+      getActivity().startService(uploadAudioFile);
+      sentOne = true;
+    }
+
+    super.onDestroy();
   }
 
   public class RecognitionReceiver extends BroadcastReceiver {
@@ -810,7 +824,6 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
   }
 
   public void addAudioFile(String filename) {
-
     final String recognizerAudioFileName = Config.DEFAULT_OUTPUT_DIRECTORY + "/" + filename;
 
     String datumAudioFileName = Config.DEFAULT_OUTPUT_DIRECTORY + "/" + mItem.getBaseFilename()
@@ -839,5 +852,6 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     Log.d(Config.TAG, "Recorded audio " + recognizerAudioFileName);
     this.recordUserEvent("captureAudio", recognizerAudioFileName);
 
+    SecureHttpClient.checkAndRequestPermissions(getActivity(), REQUEST_ID_MULTIPLE_PERMISSIONS);
   }
 }
