@@ -103,6 +103,7 @@
             android:label="@string/speech_app_name"></activity>
 
         <service android:name="com.github.fielddb.datacollection.AudioRecorder"></service>
+        <service android:name="com.github.fielddb.service.DownloadFilesService"></service>
         <service android:name="com.github.fielddb.service.DownloadDatumsService"></service>
         <service android:name="com.github.fielddb.service.RegisterUserService"></service>
         <service android:name="com.github.fielddb.service.UploadAudioVideoService"></service>
