@@ -35,10 +35,9 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.Toast;
 
-import com.github.fielddb.lessons.PrivateConstants;
 import com.github.fielddb.database.DatumContentProvider.DatumTable;
 import com.github.fielddb.Config;
-import com.github.fielddb.datacollection.SecureHttpClient;
+import com.github.fielddb.datacollection.MultipartPostRequest;
 import com.github.fielddb.service.PocketSphinxRecognitionService;
 import com.github.fielddb.service.UploadAudioVideoService;
 import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
@@ -750,7 +749,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
       super.onDestroy();
       return;
     }
-    if (!SecureHttpClient.checkAndRequestPermissions(getActivity(), REQUEST_ID_MULTIPLE_PERMISSIONS)) {
+    if (!MultipartPostRequest.checkAndRequestPermissions(getActivity(), REQUEST_ID_MULTIPLE_PERMISSIONS)) {
       super.onDestroy();
       Log.d(Config.TAG, "Missing permissions to upload of audio files ");
       return;
@@ -854,6 +853,6 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     Log.d(Config.TAG, "Recorded audio " + recognizerAudioFileName);
     this.recordUserEvent("captureAudio", recognizerAudioFileName);
 
-    SecureHttpClient.checkAndRequestPermissions(getActivity(), REQUEST_ID_MULTIPLE_PERMISSIONS);
+    MultipartPostRequest.checkAndRequestPermissions(getActivity(), REQUEST_ID_MULTIPLE_PERMISSIONS);
   }
 }
