@@ -5,7 +5,7 @@
     android:installLocation="preferExternal">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -103,6 +103,7 @@
             android:label="@string/speech_app_name"></activity>
 
         <service android:name="com.github.fielddb.datacollection.AudioRecorder"></service>
+        <service android:name="com.github.fielddb.service.DownloadFilesService"></service>
         <service android:name="com.github.fielddb.service.DownloadDatumsService"></service>
         <service android:name="com.github.fielddb.service.RegisterUserService"></service>
         <service android:name="com.github.fielddb.service.UploadAudioVideoService"></service>
