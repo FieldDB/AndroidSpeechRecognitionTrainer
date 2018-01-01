@@ -14,6 +14,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
+
 public class KartuliSpeechRecognitionApplication extends FieldDBApplication {
 
   @Override
@@ -36,9 +38,9 @@ public class KartuliSpeechRecognitionApplication extends FieldDBApplication {
       if (datumCursor.getCount() == 0) {
         ContentValues values = new ContentValues();
         values.put(DatumTable.COLUMN_ID, "instructions");
-//        values.put(DatumTable.COLUMN_UTTERANCE, R.string.training_instructions);
-//        values.put(DatumTable.COLUMN_ORTHOGRAPHY, R.string.training_instructions);
-//        values.put(DatumTable.COLUMN_CONTEXT, R.string.training_context);
+        values.put(DatumTable.COLUMN_UTTERANCE, getString(R.string.training_instructions));
+        values.put(DatumTable.COLUMN_ORTHOGRAPHY, getString(R.string.training_instructions));
+        values.put(DatumTable.COLUMN_CONTEXT, getString(R.string.training_context));
         getContentResolver().insert(DatumContentProvider.CONTENT_URI, values);
 
         Intent updateSMSSamples = new Intent(getApplicationContext(), KartuliSMSCorpusService.class);

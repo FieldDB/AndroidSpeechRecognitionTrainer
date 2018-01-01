@@ -55,7 +55,13 @@
 
         <activity
             android:name="com.github.fielddb.lessons.ui.DatumListActivity"
-            android:label="Recognition Trainer Advanced"></activity>
+            android:label="Recognition Trainer Advanced">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.github.fielddb.lessons.ui.WelcomeActivity"
             android:label="@string/speech_app_name">
