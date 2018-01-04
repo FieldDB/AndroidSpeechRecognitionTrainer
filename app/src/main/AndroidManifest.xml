@@ -121,15 +121,15 @@
         <provider
             android:name="com.github.fielddb.database.DatumContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.datum"
-            android:exported="false"></provider>
+            android:exported="true"></provider>
         <provider
             android:name="com.github.fielddb.database.AudioVideoContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.audiovideo"
-            android:exported="false"></provider>
+            android:exported="true"></provider>
         <provider
             android:name="com.github.fielddb.database.FieldDBUserContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.user"
-            android:exported="false"></provider>
+            android:exported="true"></provider>
     </application>
 
 </manifest>
