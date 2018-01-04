@@ -28,14 +28,10 @@
     <string name="remove">Sterge.</string>
     <string name="no_recognized_result">Nu s-a auzit nimic...</string>
     <string name="hypothesis">Ipoteza</string>
-
-    <!-- PocketSphinx -->
-
-    <string name="start">Incepe</string>
-    <string name="stop">Opreste-te.</string>
-    <string name="kws_caption">Pentru a incepe demonstratia, spune \"okay android\".</string>
-    <string name="menu_caption">Spune \"numere\" or \"cum e vremea?\" pentru a face o selectie.</string>
-    <string name="digits_caption">Sa practicam recunoasterea numerelor: spune cateva cifre, cum ar fi \"unu doi trei patru cinci\".</string>
-    <string name="forecast_caption">Spune cateva cuvinte in genul celor de la emisiunea starea vremii, cum ar fi \"miercuri se anunta soare\".</string>
-
+    <string name="training_instructions">შენ უნდა წაიკითხო რამოდენიმე წინადადება, რათა გადაამზადო აპლიკაცია შენს ხმაზე და შენს სიტყვებზე</string>
+    <string name="training_context">
+      The Georgian language is very complex and very different from other languages
+      which were used to build Speech Recognition systems. This means each person
+      should have their own recognizer.
+    </string>
 </resources>
