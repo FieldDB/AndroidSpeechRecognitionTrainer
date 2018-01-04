@@ -42,6 +42,22 @@ export MODULE_DIR=/path/to/where/AndroidFieldDB/is
 ./gradlew installDebug
 ```
 
+Create a local.properties file, for example:
+
+```
+# This file must *NOT* be checked into Version Control Systems,
+# as it contains information specific to your local configuration.
+#
+# Location of the SDK. This is only used by Gradle.
+# For customization when using a Version Control System, please read the
+# header note.
+#Sun Mar 05 18:21:33 EST 2017
+ndk.dir=/Users/username/Library/Android/sdk/ndk-bundle
+sdk.dir=/Users/username/Library/Android/sdk
+keyPassword=apasswordforyourkeystore
+storeFile=/Users/username/path/to/your/keystore
+```
+
 
 ### Decoding raw audio
 
