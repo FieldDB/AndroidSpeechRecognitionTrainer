@@ -48,5 +48,6 @@
       which were used to build Speech Recognition systems. This means each person
       should have their own recognizer.
     </string>
+    <string name="title_datum_list_activity">Recognition Trainer Advanced</string>
 
 </resources>
