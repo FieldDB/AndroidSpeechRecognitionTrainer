@@ -55,7 +55,7 @@
 
         <activity
             android:name="com.github.fielddb.lessons.ui.DatumListActivity"
-            android:label="Recognition Trainer Advanced">
+            android:label="@string/title_datum_list_activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -121,15 +121,15 @@
         <provider
             android:name="com.github.fielddb.database.DatumContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.datum"
-            android:exported="false"></provider>
+            android:exported="true"></provider>
         <provider
             android:name="com.github.fielddb.database.AudioVideoContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.audiovideo"
-            android:exported="false"></provider>
+            android:exported="true"></provider>
         <provider
             android:name="com.github.fielddb.database.FieldDBUserContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.user"
-            android:exported="false"></provider>
+            android:exported="true"></provider>
     </application>
 
 </manifest>
