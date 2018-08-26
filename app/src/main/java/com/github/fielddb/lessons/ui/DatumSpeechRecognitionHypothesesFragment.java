@@ -225,14 +225,15 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
 
         @Override
         public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-          if (mHasRecognized == false) {
-            return;
-          }
+//          if (mHasRecognized == false) {
+//            return;
+//          }
           String currentText = hypothesis1EditText.getText().toString();
           mItem.setOrthography(currentText);
           showOrthographyOnly(rootView);
           ContentValues values = new ContentValues();
           values.put(DatumTable.COLUMN_ORTHOGRAPHY, currentText);
+          values.put(DatumTable.COLUMN_TAGS, "Gismet");
           getActivity().getContentResolver().update(mUri, values, null, null);
           recordUserEvent("editDatum", "hypothesis1");
         }
@@ -509,6 +510,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
       if (mPromptFromCaller == null) {
         mPromptFromCaller = getString(R.string.im_listening);
       }
+
       hypothesis5EditText.setText(mPromptFromCaller);
 
       Intent intent = new Intent(getActivity(), PocketSphinxRecognitionService.class);
@@ -624,7 +626,8 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
       if (partialResults.size() > 0 && partialResults.get(0) != null && !"".equals(partialResults.get(0))
           && !hypothesis1EditText.getText().equals(partialResults.get(0))) {
         hypothesis1EditText.setText(partialResults.get(0));
-        // this.mHasRecognized = true;
+        this.mHasRecognized = true;
+        mHypotheses = partialResults;
       } else {
         // hypothesis1EditText.setVisibility(View.GONE);
       }
@@ -742,6 +745,7 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
 
   @Override
   public void onDestroy() {
+    setIntentResult();
     if (this.mRecognitionReceiver != null && getActivity() != null) {
       getActivity().unregisterReceiver(this.mRecognitionReceiver);
     }
@@ -815,7 +819,8 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
     ClipboardManager clipboard = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
     ClipData clip = ClipData.newPlainText("recognized", firstGuessOrEditedGuess);
     clipboard.setPrimaryClip(clip);
-    Toast.makeText(getActivity(), "Copied " + firstGuessOrEditedGuess + " to your clibboard.", Toast.LENGTH_LONG)
+    String copied = getString(R.string.copied_result_to_your_clipboard);
+    Toast.makeText(getActivity(), String.format(copied, firstGuessOrEditedGuess), Toast.LENGTH_LONG)
         .show();
 
     Intent returnToCaller = new Intent();

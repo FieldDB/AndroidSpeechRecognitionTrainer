@@ -32,6 +32,7 @@
     <string name="i_might_have_heard">Cred ca am auzit: </string>
     <string name="or_maybe">Sau poate: </string>
     <string name="there_were_others">. Te fac sa razi, nu? Ar fi fost si alte optiuni, dar cred ca o sa ma opresc aici. </string>
+    <string name="copied_result_to_your_clipboard">Copied %s to your clipboard</string>
     <string name="train">Antrenament in curs</string>
     <string name="saving">Saving</string>
     <string name="recognize">Recunoastere</string>

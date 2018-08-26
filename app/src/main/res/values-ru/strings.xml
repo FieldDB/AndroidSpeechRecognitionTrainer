@@ -31,6 +31,7 @@
     <string name="i_might_have_heard">შესაძლებელია გამიგია: </string>
     <string name="or_maybe">ან შეიძლება </string>
     <string name="there_were_others">. I\'m pretty funny, ey? There were some other options, but I think I\'ll stop there. </string>
+    <string name="copied_result_to_your_clipboard">დააკოპირეს %s თქვენს ბუფერში</string>
     <string name="train">წვრთნა</string>
     <string name="saving">შენახვა</string>
     <string name="recognize">ამოცნობა</string>
