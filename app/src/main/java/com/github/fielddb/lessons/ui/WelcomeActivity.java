@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.github.fielddb.Config;
-import com.github.fielddb.database.DatumContentProvider;
+import com.github.fielddb.KartuliSpeechRecognitionApplication;
 import com.github.fielddb.experimentation.ui.ProductionExperimentActivity;
 import com.github.fielddb.BugReporter;
 import com.github.fielddb.datacollection.DeviceDetails;
@@ -13,14 +13,19 @@ import com.github.opensourcefieldlinguistics.fielddb.speech.kartuli.R;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.speech.RecognizerIntent;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
 
@@ -31,6 +36,9 @@ public class WelcomeActivity extends Activity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    String language = ((KartuliSpeechRecognitionApplication)getApplication()).forceLocale(Config.DATA_IS_ABOUT_LANGUAGE_ISO);
+    Log.d(Config.TAG, "Language Lessons Set locale to " + language + " iso " + Config.DATA_IS_ABOUT_LANGUAGE_ISO);
+
     super.onCreate(savedInstanceState);
     super.setContentView(R.layout.activity_welcome);
 
@@ -121,6 +129,36 @@ public class WelcomeActivity extends Activity {
   }
 
   private  boolean checkAndRequestPermissions() {
+    final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    Boolean informedConsent = prefs.getBoolean("informed_consent", false);
+    final WelcomeActivity activity = this;
+
+    if (!informedConsent) {
+      final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+      LayoutInflater inflater = this.getLayoutInflater();
+      // Inflate and set the layout for the dialog
+      // Pass null as the parent view because its going in the dialog layout
+      builder.setView(inflater.inflate(R.layout.informed_consent_dialog, null));
+      builder.setPositiveButton(R.string.i_agree, new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialog, int id) {
+         Log.d(Config.TAG, "user said okay");
+          SharedPreferences.Editor editor = prefs.edit();
+           editor.putBoolean("informed_consent", true);
+           editor.commit();
+           activity.checkAndRequestPermissions();
+        }
+      });
+      builder.setNegativeButton(R.string.exit, new DialogInterface.OnClickListener() {
+        public void onClick(DialogInterface dialog, int id) {
+          activity.finish();
+        }
+      });
+      builder.create();
+      builder.show();
+      return false;
+    }
+
     List<String> listPermissionsNeeded = new ArrayList<>();
 
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -137,4 +175,9 @@ public class WelcomeActivity extends Activity {
     Intent go = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://batumi.github.io"));
     startActivity(go);
   }
+  public void goToPrivacyPolicy(View view) {
+    Intent go = new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https://www.lingsync.org/privacy.html"));
+    startActivity(go);
+  }
+
 }
