@@ -20,6 +20,12 @@ public class KartuliSpeechRecognitionApplication extends FieldDBApplication {
 
   @Override
   public final void onCreate() {
+    if (BuildConfig.DEBUG) {
+      PrivateConstants.ACRA_SERVER_URL = PrivateConstants.ACRA_SERVER_URL.replace("learnx", "debug");
+    } else {
+      PrivateConstants.ACRA_SERVER_URL = PrivateConstants.ACRA_SERVER_URL.replace("debug", "learnx");
+    }
+
     super.onCreate();
 
     /*
