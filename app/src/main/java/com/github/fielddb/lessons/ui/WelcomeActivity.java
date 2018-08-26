@@ -42,15 +42,13 @@ public class WelcomeActivity extends Activity {
     super.onCreate(savedInstanceState);
     super.setContentView(R.layout.activity_welcome);
 
-    if (!checkAndRequestPermissions()) {
-      return;
-    }
-
     if (this.mDeviceDetails == null) {
       this.mDeviceDetails = new DeviceDetails(this);
     }
     BugReporter.putCustomData("deviceDetails", this.mDeviceDetails.getCurrentDeviceDetails());
     com.github.fielddb.model.Activity.sendActivity("login", "KartuliSpeechRecognizer");
+
+    checkAndRequestPermissions();
   }
 
   public void onTrainClick(View view) {
@@ -161,6 +159,9 @@ public class WelcomeActivity extends Activity {
 
     List<String> listPermissionsNeeded = new ArrayList<>();
 
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+      listPermissionsNeeded.add(Manifest.permission.RECORD_AUDIO);
+    }
     if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
       listPermissionsNeeded.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
