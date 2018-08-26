@@ -765,7 +765,6 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
         super.onDestroy();
         return;
       }
-      Config.D = false;
 //      Config.DEFAULT_UPLOAD_AUDIO_VIDEO_URL = PrivateConstants.DEFAULT_UPLOAD_AUDIO_VIDEO_URL;
       Log.d(Config.TAG, "Requesting upload of recognition audio file " + filename + " to " + Config.DEFAULT_UPLOAD_AUDIO_VIDEO_URL);
       Intent uploadAudioFile = new Intent(getActivity(), UploadAudioVideoService.class);

@@ -48,7 +48,7 @@ public class KartuliSpeechRecognitionApplication extends FieldDBApplication {
       }
       datumCursor.close();
     } else {
-      if (wifi.isConnected() || Config.D) {
+      if (wifi.isConnected() || BuildConfig.DEBUG) {
         Intent updateSamples = new Intent(getApplicationContext(), DownloadDatumsService.class);
         getApplicationContext().startService(updateSamples);
       }
