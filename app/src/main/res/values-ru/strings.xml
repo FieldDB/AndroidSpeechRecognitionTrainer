@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">მწვრთნელი</string>
     <string name="speech_app_name">ამომცნობი</string>
     <string name="title_datum_detail">ფრაზა</string>
     <string name="title_datum_list_activity">ფრაზები</string>
+    <string name="i_agree">ვეთანხმები</string>
+    <string name="exit">გასვლა</string>
     <string name="app_explanation">ბათუმი აპლიკაციის დეველოპერები  გაერთიანდნენ ღია ველის ენათმეცნიერები  რათა შექმნან სიტყვის გამომცნობი ქართული ენის მოსაუბრეებთათვის. შენ შეგიძლია ისარგებლო ამ აპლიკაციით, მოამზადო შენი ანდროიდი, რათა გამოიცნო შენი მეტყველება. შენ უნდა წაიკითხო რამოდენიმე წინადადება და შემდეგ დაუკავშირდე WiFi-ს რათა გადაამზადო შენი ხმის მოდელი. ჩვენ ვიმედოვნებთ, რომ გვექნება უკეთესი .გამომცნობი რომელიც იქნება 10%ზე მეტი, თუმცა ქართული ენა განსხვავებულია სხვა ენებისგან, ასე რომ ჩვენ ჯერ არ ვიცით რამდენად გამოსაყენებელი იქნება ეს აპლიკაცია. შენ შეგიძლია სცადო, ეს არის უფრო მეტად ექსპერიმენტული და კვლევის პროგრამული უზრუნველყოფა, ასე რო ჩვენ არ შეგვიძლია მოგცეთ გარანტია, რომ ეს იქნება გამოსაყენებელი. აქ არის ჩვენი სლაიდის ლინკი:  http://batumi.github.io</string>
-    <string name="are_you_sure">Are you sure?</string>
-    <string name="are_you_sure_put_in_trash">Are you sure you want to put this datum in the trash?</string>
+    <string name="are_you_sure">დარწმუნებული ხართ?</string>
+    <string name="are_you_sure_put_in_trash">დარწმუნებული ხართ, რომ გსურთ ამ ელემენტის წაშლა?</string>
+    <string name="delete">წაშლა</string>
 
     <!-- Action menu items -->
     <string name="action_comments">Comment(s)</string>
@@ -16,8 +18,8 @@
     <string name="action_similar">Similar</string>
     <string name="action_gps_locations">GPS Location(s)</string>
     <string name="action_reminder">Reminder(s)</string>
-    <string name="action_take_picture">Take Picture</string>
-    <string name="action_record_video">Record Video</string>
+    <string name="action_take_picture">ფოტოს გადაღებ</string>
+    <string name="action_record_video">ვიდეო ჩანაწერი</string>
     <string name="action_play_media">Play</string>
     <string name="action_record_audio">Record Audio</string>
     <string name="action_stop_record_media">Stop Recording</string>
@@ -29,11 +31,15 @@
     <string name="i_might_have_heard">შესაძლებელია გამიგია: </string>
     <string name="or_maybe">ან შეიძლება </string>
     <string name="there_were_others">. I\'m pretty funny, ey? There were some other options, but I think I\'ll stop there. </string>
+    <string name="copied_result_to_your_clipboard">დააკოპირეს %s თქვენს ბუფერში</string>
     <string name="train">წვრთნა</string>
+    <string name="saving">შენახვა</string>
     <string name="recognize">ამოცნობა</string>
+    <string name="swipe_to_begin">დაიწყე სვოპიn</string>
     <string name="tap_to_speak">დააჭირე,რომ ილაპარაკო</string>
     <string name="tap_to_end">დააჭირე,რომ დაასრულო</string>
     <string name="speak_now">ილაპარაკე ახლა</string>
+    <string name="speak_after_prompt">ლაპარაკი შემდეგ სწრაფი</string>
     <string name="dialog_continue_to_advanced_training">დაამატებდი საკუთარ სიტყვებს?</string>
     <string name="continue_word">გააგრძელე</string>
     <string name="finished">საკმარისია</string>
@@ -41,13 +47,9 @@
     <string name="orthography">ფრაზა</string>
     <string name="tag_hint">ინტერნეტ ძიება, ტექქსტური შეტყობინება, ელექქტრონული წერილი </string>
     <string name="translation_hint"></string>
-    <string name="remove">Remove</string>
-    <string name="no_recognized_result">I didn\'t hear anything...</string>
-    <string name="hypothesis">Hypothesis</string>
+    <string name="remove">წაშლა</string>
+    <string name="no_recognized_result">არ მესმის არაფერი...</string>
+    <string name="hypothesis">ჰიპოთეზა</string>
     <string name="training_instructions">შენ უნდა წაიკითხო რამოდენიმე წინადადება, რათა გადაამზადო აპლიკაცია შენს ხმაზე და შენს სიტყვებზე</string>
-    <string name="training_context">
-      The Georgian language is very complex and very different from other languages
-      which were used to build Speech Recognition systems. This means each person
-      should have their own recognizer.
-    </string>
+    <string name="training_context"></string>
 </resources>

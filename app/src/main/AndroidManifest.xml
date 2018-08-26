@@ -12,9 +12,7 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_LOGS" />
 
     <supports-screens
         android:anyDensity="true"
@@ -56,11 +54,6 @@
         <activity
             android:name="com.github.fielddb.lessons.ui.DatumListActivity"
             android:label="@string/title_datum_list_activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.github.fielddb.lessons.ui.WelcomeActivity"
@@ -75,11 +68,6 @@
             android:name="com.github.fielddb.experimentation.ui.ProductionExperimentActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/train">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name="com.github.fielddb.lessons.ui.SpeechRecognitionActivity"
