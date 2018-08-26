@@ -5,9 +5,12 @@
     <string name="speech_app_name">LRL Recunoastere Vocala</string>
     <string name="title_datum_detail">Datum</string>
     <string name="title_datum_list_activity">Recognition Trainer Advanced</string>
+    <string name="i_agree">I Agree</string>
+    <string name="exit">Exit</string>
     <string name="app_explanation"> Suntem o echipa de lingvisti si programatori care si-au propus sa creeze un sistem de recunoastere vocala pentru limbile mai putin folosite la nivel global. Aceasta aplicatie poate contribui la recunoasterea propriei tale voci de catre Android-ul personal. Tot ce trebuie sa faci e sa citesti cateva sugestii si apoi sa contactezi WiFi pentru a-ti incarca prototipul. Este de asteptat ca recunoasterea sa fie ameliorata dupa ce vei citi cateva propozitii simple pentru a obisnui sistemul cu vocea ta. Pentru ca limbile cu resurse tehnologice limitate sunt diferite de limbile folosite la scara internationala, nu putem prezice cat de bine va functiona aceasta aplicatie. Incercand-o, vei contribui la dezvoltarea ei si la munca de cercetare, dar nu putem garanta ca iti va folosi foarte mult la nivel personal. Poti citi mai multe aici: http://batumi.github.io Iar aici sunt regulile noastre de confidentialitate: https://www.lingsync.org/privacy.html</string>
     <string name="are_you_sure">Esti sigur?</string>
     <string name="are_you_sure_put_in_trash">Esti sigur ca vrei sa stergi aceste date?</string>
+    <string name="delete">Delete</string>
 
     <!-- Action menu items -->
     <string name="action_comments">Comment(s)</string>
@@ -30,10 +33,13 @@
     <string name="or_maybe">Sau poate: </string>
     <string name="there_were_others">. Te fac sa razi, nu? Ar fi fost si alte optiuni, dar cred ca o sa ma opresc aici. </string>
     <string name="train">Antrenament in curs</string>
+    <string name="saving">Saving</string>
     <string name="recognize">Recunoastere</string>
+    <string name="swipe_to_begin">Swipe to begin</string>
     <string name="tap_to_speak">Atinge ecranul ca sa re-inregistrezi</string>
     <string name="tap_to_end">Atinge ecranul ca sa parasesti aplicatia</string>
     <string name="speak_now">Vorbeste acum</string>
+    <string name="speak_after_prompt">Speak after the promptი</string>
     <string name="dialog_continue_to_advanced_training">Vrei sa adaugi propriile tale cuvinte?</string>
     <string name="continue_word">Continua</string>
     <string name="finished">De-ajuns.</string>
