@@ -37,6 +37,7 @@ public class SpeechRecognitionActivity extends FragmentActivity {
       // using a fragment transaction.
       ContentValues values = new ContentValues();
       values.put(DatumTable.COLUMN_VALIDATION_STATUS, "ToBeChecked,AutomaticallyRecognized");
+      values.put(DatumTable.COLUMN_TAGS, "Gismet");
       Uri newDatum = this.getContentResolver().insert(DatumContentProvider.CONTENT_URI, values);
       if (newDatum == null) {
         BugReporter.sendBugReport("*** Error inserting a speech recognition datum in DB ***");

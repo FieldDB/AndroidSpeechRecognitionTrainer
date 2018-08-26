@@ -233,7 +233,6 @@ public class DatumSpeechRecognitionHypothesesFragment extends DatumProductionExp
           showOrthographyOnly(rootView);
           ContentValues values = new ContentValues();
           values.put(DatumTable.COLUMN_ORTHOGRAPHY, currentText);
-          values.put(DatumTable.COLUMN_TAGS, "Gismet");
           getActivity().getContentResolver().update(mUri, values, null, null);
           recordUserEvent("editDatum", "hypothesis1");
         }
