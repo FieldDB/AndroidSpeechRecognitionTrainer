@@ -12,7 +12,11 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
 
     <supports-screens
         android:anyDensity="true"
@@ -53,8 +57,7 @@
 
         <activity
             android:name="com.github.fielddb.lessons.ui.DatumListActivity"
-            android:label="@string/title_datum_list_activity">
-        </activity>
+            android:label="@string/title_datum_list_activity"></activity>
         <activity
             android:name="com.github.fielddb.lessons.ui.WelcomeActivity"
             android:label="@string/speech_app_name">
@@ -67,8 +70,7 @@
         <activity
             android:name="com.github.fielddb.experimentation.ui.ProductionExperimentActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/train">
-        </activity>
+            android:label="@string/train"></activity>
         <activity
             android:name="com.github.fielddb.lessons.ui.SpeechRecognitionActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -106,10 +108,31 @@
         <service android:name="com.github.fielddb.service.KartuliLegalSearchCorpusService"></service>
         <service android:name="com.github.fielddb.service.PocketSphinxRecognitionService"></service>
 
+        <service
+            android:name="com.github.fielddb.service.CorpusSyncService"
+            android:exported="true"
+            android:process=":sync">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/syncadapter" />
+        </service>
+        <service android:name="com.github.fielddb.service.AuthenticatorService">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@xml/authenticator" />
+        </service>
+
         <provider
             android:name="com.github.fielddb.database.DatumContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.datum"
-            android:exported="true"></provider>
+            android:exported="true"
+            android:syncable="true"></provider>
         <provider
             android:name="com.github.fielddb.database.AudioVideoContentProvider"
             android:authorities="com.github.fielddb.speechrecognition.kartuli.audiovideo"

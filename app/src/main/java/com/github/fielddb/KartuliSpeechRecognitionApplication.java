@@ -25,6 +25,7 @@ public class KartuliSpeechRecognitionApplication extends FieldDBApplication {
     } else {
       PrivateConstants.ACRA_SERVER_URL = PrivateConstants.ACRA_SERVER_URL.replace("debug", "learnx");
     }
+    PrivateConstants.DATUM_AUTHORITY = "com.github.fielddb.speechrecognition.kartuli.datum";
 
     super.onCreate();
 
