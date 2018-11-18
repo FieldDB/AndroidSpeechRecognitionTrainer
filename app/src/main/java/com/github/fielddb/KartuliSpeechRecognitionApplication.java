@@ -20,6 +20,13 @@ public class KartuliSpeechRecognitionApplication extends FieldDBApplication {
 
   @Override
   public final void onCreate() {
+    if (BuildConfig.DEBUG) {
+      PrivateConstants.ACRA_SERVER_URL = PrivateConstants.ACRA_SERVER_URL.replace("learnx", "debug");
+    } else {
+      PrivateConstants.ACRA_SERVER_URL = PrivateConstants.ACRA_SERVER_URL.replace("debug", "learnx");
+    }
+    PrivateConstants.DATUM_AUTHORITY = "com.github.fielddb.speechrecognition.kartuli.datum";
+
     super.onCreate();
 
     /*
@@ -48,7 +55,7 @@ public class KartuliSpeechRecognitionApplication extends FieldDBApplication {
       }
       datumCursor.close();
     } else {
-      if (wifi.isConnected() || Config.D) {
+      if (wifi.isConnected() || BuildConfig.DEBUG) {
         Intent updateSamples = new Intent(getApplicationContext(), DownloadDatumsService.class);
         getApplicationContext().startService(updateSamples);
       }

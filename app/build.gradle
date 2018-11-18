@@ -14,11 +14,11 @@ android {
     }
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.github.fielddb.lessons"
+        applicationId "com.github.opensourcefieldlinguistics.fielddb.speech.kartuli"
         minSdkVersion 16
-        targetSdkVersion 25
-        versionCode 9
-        versionName "2.18.2"
+        targetSdkVersion 26
+        versionCode 18
+        versionName "2.19.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
